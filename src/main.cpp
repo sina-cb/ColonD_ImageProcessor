@@ -1,64 +1,49 @@
-#include <cv.h>
-#include <highgui.h>
-#include <iostream>
+#include <opencv2/objdetect/objdetect.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 
+#include <iostream>
+#include <stdio.h>
+
+using namespace std;
 using namespace cv;
 
-/// Global Variables
-const int alpha_slider_max = 100;
-int alpha_slider;
-double alpha;
-double beta;
+int main(int argc, const char** argv)
+{
+	VideoCapture cap(0);
+	Mat frame, frameCopy, image;
 
-/// Matrices to store images
-Mat src1;
-Mat src2;
-Mat dst;
+	if (!cap.isOpened())  // if not success, exit program
+		cout << "No camera detected" << endl;
 
-/**
- * @function on_trackbar
- * @brief Callback for trackbar
- */
-void on_trackbar(int, void*) {
-	alpha = (double) alpha_slider / alpha_slider_max;
-	beta = (1.0 - alpha);
+	double dWidth = cap.get(CV_CAP_PROP_FRAME_WIDTH); //get the width of frames of the video
+	double dHeight = cap.get(CV_CAP_PROP_FRAME_HEIGHT); //get the height of frames of the  video
+	cout << "Frame size : " << dWidth << " x " << dHeight << endl;
+	namedWindow("Camera Feed", CV_WINDOW_AUTOSIZE); //create a window called "MyVideo"
 
-	addWeighted(src1, alpha, src2, beta, 0.0, dst);
+	cout << "In capture ..." << endl;
+	while (true)
+	{
+		Mat frame;
+		bool bSuccess = cap.read(frame); // read a new frame from video
+		if (!bSuccess) //if not success, break loop
+		{
+			cout << "Cannot read a frame from video file" << endl;
+			break;
+		}
 
-	imshow("Linear Blend", dst);
-}
+		imshow("Camera Feed", frame); //show the frame in "MyVideo" window
 
-int main(int argc, char** argv) {
-	/// Read image ( same size, same type )
-	src1 = imread("/home/sina/Pictures/img1.jpg");
-	src2 = imread("/home/sina/Pictures/img2.jpg");
+		if (waitKey(30) == 32){ //27 is Esc
+			cout << "Saving the image to /home/sina/Desktop/test.jpg" << endl;
+			imwrite("/home/sina/Desktop/test.jpg", frame);
 
-	if (!src1.data) {
-		printf("Error loading src1 \n");
-		return -1;
-	}
-	if (!src2.data) {
-		printf("Error loading src2 \n");
-		return -1;
+			break;
+		}
 	}
 
-	/// Initialize values
-	alpha_slider = 0;
-
-	/// Create Windows
-	namedWindow("Linear Blend", 1);
-
-	/// Create Trackbars
-	char TrackbarName[50];
-	sprintf(TrackbarName, "Alpha x %d", alpha_slider_max);
-
-	createTrackbar(TrackbarName, "Linear Blend", &alpha_slider,
-			alpha_slider_max, on_trackbar);
-
-	/// Show some stuff
-	on_trackbar(alpha_slider, 0);
-
-	/// Wait until user press some key
 	waitKey(0);
+	cvDestroyWindow("Camera Feed");
+
 	return 0;
 }
