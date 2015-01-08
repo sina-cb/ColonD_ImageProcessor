@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2015-01-08T16:19:45
+# Project created by QtCreator 2015-01-08T17:52:56
 #
 #-------------------------------------------------
 
@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = Qt_OpenCV
+TARGET = ColonD_ImageProcessor
 TEMPLATE = app
 
 INCLUDEPATH += /opt/ros/hydro/include/opencv\
@@ -16,12 +16,13 @@ INCLUDEPATH += /opt/ros/hydro/include/opencv\
 
 LIBS += "/opt/ros/hydro/lib/*.so"
 
-
 SOURCES += main.cpp\
         mainwindow.cpp \
-    captureimage.cpp
+    captureimage.cpp \
+    projecdata.cpp
 
 HEADERS  += mainwindow.h \
-    captureimage.h
+    captureimage.h \
+    projecdata.h
 
 FORMS    += mainwindow.ui
