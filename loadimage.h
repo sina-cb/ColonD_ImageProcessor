@@ -1,5 +1,5 @@
-#ifndef CAPTUREIMAGE_H
-#define CAPTUREIMAGE_H
+#ifndef LOADIMAGE_H
+#define LOADIMAGE_H
 
 #include <opencv2/objdetect/objdetect.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -8,11 +8,11 @@
 
 using namespace cv;
 
-class CaptureImage
+class LoadImage
 {
 public:
-    CaptureImage();
-    void capture(Mat& result);
+    LoadImage();
+    void load(QString path, Mat& result);
 };
 
-#endif // CAPTUREIMAGE_H
+#endif // LOADIMAGE_H

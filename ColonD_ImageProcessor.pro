@@ -18,11 +18,13 @@ LIBS += "/opt/ros/hydro/lib/*.so"
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    captureimage.cpp \
-    projecdata.cpp
+    projecdata.cpp \
+    loadimage.cpp \
+    captureimage.cpp
 
 HEADERS  += mainwindow.h \
+    projecdata.h \
     captureimage.h \
-    projecdata.h
+    loadimage.h
 
 FORMS    += mainwindow.ui

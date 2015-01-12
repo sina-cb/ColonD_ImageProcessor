@@ -9,11 +9,11 @@ class ProjecData
 public:
     ProjecData();
 
-    Mat* Image(){return image_;}
-    void Image(Mat* image){image_ = image;}
+    Mat& Image(){return image_;}
+    void Image(Mat& image){image_ = image;}
 
 private:
-    Mat* image_;
+    Mat image_;
 
 };
 
