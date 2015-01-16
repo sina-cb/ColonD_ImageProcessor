@@ -5,7 +5,7 @@
 #include <QFileDialog>
 #include <QDir>
 #include <QDebug>
-
+#include "histogramutility.h"
 #include "cv.h"
 using namespace cv;
 
@@ -48,10 +48,13 @@ void MainWindow::on_captureBtn_clicked()
     assert(img.isContinuous());
 
     data.Image(img);
+    data.OrigImage(img);
 
     ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(img)));
     ui->captureBtn->setEnabled(false);
     ui->saveBtn->setEnabled(true);
+
+    updateHistogram();
 }
 
 
@@ -75,9 +78,16 @@ void MainWindow::on_browseBtn_clicked()
     assert(img.isContinuous());
 
     data.Image(img);
+    data.OrigImage(img);
 
     ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(img)));
     ui->saveBtn->setEnabled(true);
+
+    updateHistogram();
+}
+
+void MainWindow::updateHistogram(){
+    HistogramUtility::getHistogramImage(data.Image());
 }
 
 void MainWindow::resizeScrollArea(Mat& img){
@@ -108,33 +118,7 @@ void MainWindow::resizeScrollArea(Mat& img){
 
 QImage MainWindow::mat_to_qimage(Mat& img)
 {
-    //TODO: Remove these two nested loops completely!
-//    for(int i = 0; i < img.cols; i++)
-//    {
-//        for(int j = 0; j < img.rows; j++)
-//        {
-//            Vec3b& color = img.at<Vec3b>(Point(i, j));
-
-//            int r = color[0];
-//            int g = color[1];
-//            int b = color[2];
-
-//            int max = 80;
-
-//            r = r < max ? r : max; //R
-//            g = g < max ? g : max; //G
-//            b = b < max ? b : max; //B
-
-//            int gray_scale = 0.21 * r + 0.72 * g + 0.07 * b;
-
-//            color[0] = gray_scale / 2;
-//            color[1] = gray_scale / 4;
-//            color[2] = gray_scale;
-//        }
-//    }
-
     resizeScrollArea(img);
-
     return QImage((uchar*) img.data, img.cols, img.rows, img.step, QImage::Format_RGB888);
 }
 
@@ -152,4 +136,11 @@ void MainWindow::on_saveBtn_clicked()
     cvtColor(data.Image(), temp, CV_RGB2BGR);
 
     imwrite(fileName.toStdString().c_str(), temp);
+}
+
+void MainWindow::on_convertGrayScaleBtn_clicked()
+{
+    process.convert_to_grayscale(data.Image());
+    ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(data.Image())));
+    updateHistogram();
 }

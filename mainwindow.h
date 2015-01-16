@@ -5,6 +5,7 @@
 #include "projecdata.h"
 #include <QImage>
 #include <QPixmap>
+#include "processor.h"
 
 namespace Ui {
 class MainWindow;
@@ -18,6 +19,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     QImage mat_to_qimage(Mat& src);
     void resizeScrollArea(Mat& img);
+    void updateHistogram();
 
     ~MainWindow();
 
@@ -27,9 +29,12 @@ private slots:
 
     void on_saveBtn_clicked();
 
+    void on_convertGrayScaleBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
     ProjecData data;
+    Processor process;
 
 };
 
