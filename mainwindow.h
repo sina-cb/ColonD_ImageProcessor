@@ -31,6 +31,8 @@ private slots:
 
     void on_convertGrayScaleBtn_clicked();
 
+    void on_addNoiseBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
     ProjecData data;

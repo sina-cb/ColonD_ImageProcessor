@@ -144,3 +144,10 @@ void MainWindow::on_convertGrayScaleBtn_clicked()
     ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(data.Image())));
     updateHistogram();
 }
+
+void MainWindow::on_addNoiseBtn_clicked()
+{
+    process.add_noise(data.Image(), ui->noisePercentSlider->value());
+    ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(data.Image())));
+    updateHistogram();
+}

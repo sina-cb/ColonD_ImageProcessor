@@ -50,8 +50,6 @@ QImage HistogramUtility::getHistogramImage(Mat& img){
 
     if(remove("test.png") != 0)
         perror("Error deleting file");
-    else
-        puts("File successfully deleted");
 
     return QImage((uchar*) image.data, image.cols, image.rows, image.step, QImage::Format_RGB888);
 }
