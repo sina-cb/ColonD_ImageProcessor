@@ -31,7 +31,17 @@ private slots:
 
     void on_convertGrayScaleBtn_clicked();
 
-    void on_addNoiseBtn_clicked();
+    void on_noisePercentSlider_sliderMoved(int position);
+
+    void on_smoothBtn_clicked();
+
+    void on_applyNoiseBtn_clicked();
+
+    void on_medianBtn_clicked();
+
+    void on_thresholdBinBtn_clicked();
+
+    void on_thresholdBinSlide_sliderMoved(int position);
 
 private:
     Ui::MainWindow *ui;

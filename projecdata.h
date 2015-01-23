@@ -13,11 +13,23 @@ public:
     void Image(Mat& image){image_ = image;}
 
     Mat& OrigImage(){return orig_img_;}
-    void OrigImage(Mat& image){orig_img_ = image;}
+    void OrigImage(Mat& image){
+        Mat res(image.size(), image.type());
+        image.copyTo(res);
+        orig_img_ = res;
+    }
+
+    Mat& ColorOrigImage(){return color_orig_img;}
+    void ColorOrigImage(Mat& image){
+        Mat res(image.size(), image.type());
+        image.copyTo(res);
+        color_orig_img = res;
+    }
 
 private:
     Mat image_;
     Mat orig_img_;
+    Mat color_orig_img;
 
 };
 

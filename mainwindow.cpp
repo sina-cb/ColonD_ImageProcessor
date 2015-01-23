@@ -49,6 +49,7 @@ void MainWindow::on_captureBtn_clicked()
 
     data.Image(img);
     data.OrigImage(img);
+    data.ColorOrigImage(img);
 
     ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(img)));
     ui->captureBtn->setEnabled(false);
@@ -79,8 +80,10 @@ void MainWindow::on_browseBtn_clicked()
 
     data.Image(img);
     data.OrigImage(img);
+    data.ColorOrigImage(img);
 
     ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(img)));
+    ui->captureBtn->setEnabled(false);
     ui->saveBtn->setEnabled(true);
 
     updateHistogram();
@@ -141,13 +144,67 @@ void MainWindow::on_saveBtn_clicked()
 void MainWindow::on_convertGrayScaleBtn_clicked()
 {
     process.convert_to_grayscale(data.Image());
+    process.convert_to_grayscale(data.OrigImage());
     ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(data.Image())));
     updateHistogram();
 }
 
-void MainWindow::on_addNoiseBtn_clicked()
+void MainWindow::on_noisePercentSlider_sliderMoved(int position)
 {
-    process.add_noise(data.Image(), ui->noisePercentSlider->value());
+    Mat noisy = process.add_noise(data.Image(), position);
+    ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(noisy)));
+    updateHistogram();
+}
+
+void MainWindow::on_smoothBtn_clicked()
+{
+    int filterWidth = ui->filterWidthTxt->text().toInt();
+
+    double **filter;
+    filter = new double *[filterWidth];
+    for(int i = 0; i < filterWidth; i++)
+        filter[i] = new double[filterWidth];
+
+    for (int i = 0; i < filterWidth; i++){
+        for (int j = 0; j < filterWidth; j++){
+            filter[i][j] = 1.0 / (filterWidth * filterWidth);
+        }
+    }
+
+    Mat smoothed = process.apply_filter(data.Image(), filter, filterWidth);
+    data.Image(smoothed);
     ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(data.Image())));
+    updateHistogram();
+}
+
+void MainWindow::on_medianBtn_clicked()
+{
+    Mat smoothed = process.median_filter(data.Image(), ui->medianFilterWidthTxt->text().toInt());
+    data.Image(smoothed);
+    ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(data.Image())));
+    updateHistogram();
+}
+
+void MainWindow::on_applyNoiseBtn_clicked()
+{
+    Mat noisy = process.add_noise(data.Image(), ui->noisePercentSlider->value());
+    data.Image(noisy);
+    ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(data.Image())));
+    updateHistogram();
+}
+
+
+void MainWindow::on_thresholdBinBtn_clicked()
+{
+    Mat binary = process.threshold_binary(data.Image(), ui->thresholdBinSlide->value());
+    data.Image(binary);
+    ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(data.Image())));
+    updateHistogram();
+}
+
+void MainWindow::on_thresholdBinSlide_sliderMoved(int position)
+{
+    Mat binary = process.threshold_binary(data.Image(), position);
+    ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(binary)));
     updateHistogram();
 }
