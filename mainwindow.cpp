@@ -7,6 +7,7 @@
 #include <QDebug>
 #include "histogramutility.h"
 #include "cv.h"
+
 using namespace cv;
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -138,7 +139,8 @@ void MainWindow::on_saveBtn_clicked()
     Mat temp;
     cvtColor(data.Image(), temp, CV_RGB2BGR);
 
-    imwrite(fileName.toStdString().c_str(), temp);
+//    TODO: invistigate this issue
+//    imwrite(fileName.toStdString().c_str(), temp);
 }
 
 void MainWindow::on_convertGrayScaleBtn_clicked()
