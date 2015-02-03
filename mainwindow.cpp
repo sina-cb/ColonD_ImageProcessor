@@ -92,7 +92,17 @@ void MainWindow::on_browseBtn_clicked()
 
 void MainWindow::on_slicingBtn_clicked()
 {
-    exit(0);
+    int num_slices = ui->slicerSlide->value();
+
+    Mat* results = process.slicing_threshold(data.Image(), num_slices);
+
+    vector<int> compression_params;
+    compression_params.push_back(CV_IMWRITE_JPEG_QUALITY);
+    compression_params.push_back(100);
+    for (int i = 0; i < num_slices; i++){
+        imwrite("/home/sina/Desktop/test_last.jpg", results[i], compression_params);
+    }
+
 }
 
 void MainWindow::updateHistogram(){

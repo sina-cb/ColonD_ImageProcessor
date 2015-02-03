@@ -1,4 +1,5 @@
 ﻿#include "processor.h"
+#include "histogramutility.h"
 #include <math.h>
 #include <algorithm>
 #include <iostream>
@@ -113,6 +114,42 @@ Mat Processor::threshold_binary(Mat &img, int threshold){
     return res;
 }
 
+Mat* Processor::slicing_threshold(Mat& img, int number_of_slices){
+    HistogramUtility histUtil;
+    int* hist;
+    histUtil.getHistogram(img, hist);
+
+    Mat* results = new Mat[number_of_slices];
+    for (int i = 0; i < number_of_slices; i++){
+        int range_start = (int)(i * (256.0 / number_of_slices));
+        int range_end = (int)((i + 1) * (256.0 / number_of_slices));
+
+        Mat res(img.size(), img.type());
+
+        for(int i = 0; i < res.cols; i++){
+            for(int j = 0; j < res.rows; j++){
+                int r = img.at<Vec3b>(Point(i, j))[0];
+
+                Vec3b& color = res.at<Vec3b>(Point(i, j));
+                if (r > range_start && r <= range_end){
+                    color[0] = 255;
+                    color[1] = 255;
+                    color[2] = 255;
+                }else{
+                    color[0] = 0;
+                    color[1] = 0;
+                    color[2] = 0;
+                }
+            }
+        }
+
+        results[i] = res;
+
+    }
+
+    return results;
+}
+
 Mat Processor::add_noise(Mat &img, int percent){
     Mat res(img.size(), img.type());
     img.copyTo(res);
@@ -128,14 +165,14 @@ Mat Processor::add_noise(Mat &img, int percent){
 
                 if (color[0] == color[1] && color[1] == color[2]){
                     r = rand() % 256;
-                    //                    color[0] += r;
-                    //                    color[1] += r;
-                    //                    color[2] += r;
+                    //color[0] += r;
+                    //color[1] += r;
+                    //color[2] += r;
                     color[0] = color[1] = color[2] = r;
                 }else{
-                    //                    color[0] += rand() % 256;
-                    //                    color[1] += rand() % 256;
-                    //                    color[2] += rand() % 256;
+                    //color[0] += rand() % 256;
+                    //color[1] += rand() % 256;
+                    //color[2] += rand() % 256;
                     color[0] = rand() % 256;
                     color[1] = rand() % 256;
                     color[2] = rand() % 256;

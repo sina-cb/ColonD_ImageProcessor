@@ -1,9 +1,9 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <vector>
 #include <opencv2/opencv.hpp>
 
+#include <vector>
 #include <QMainWindow>
 #include <QImage>
 #include <QPixmap>

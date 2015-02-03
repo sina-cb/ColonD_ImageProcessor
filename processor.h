@@ -17,6 +17,7 @@ public:
     Mat apply_filter(Mat& img, double** filter, int filter_w, int threshold = 256);
     Mat median_filter(Mat& img, int filter_w);
     Mat threshold_binary(Mat& img, int threshold = 128);
+    Mat* slicing_threshold(Mat& img, int number_of_slices);
 
 };
 

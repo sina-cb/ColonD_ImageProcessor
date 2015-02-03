@@ -318,7 +318,7 @@
        <string>Image Slicing:</string>
       </property>
      </widget>
-     <widget class="QSlider" name="thresholdBinSlide_2">
+     <widget class="QSlider" name="slicerSlide">
       <property name="geometry">
        <rect>
         <x>40</x>
