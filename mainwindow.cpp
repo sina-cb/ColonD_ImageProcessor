@@ -1,14 +1,14 @@
 ﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "loadimage.h"
-#include "captureimage.h"
+
 #include <QFileDialog>
 #include <QDir>
 #include <QDebug>
-#include "histogramutility.h"
-#include "cv.h"
 
-using namespace cv;
+#include "loadimage.h"
+#include "captureimage.h"
+#include "histogramutility.h"
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -90,6 +90,11 @@ void MainWindow::on_browseBtn_clicked()
     updateHistogram();
 }
 
+void MainWindow::on_slicingBtn_clicked()
+{
+    exit(0);
+}
+
 void MainWindow::updateHistogram(){
     HistogramUtility::getHistogramImage(data.Image());
 }
@@ -126,7 +131,6 @@ QImage MainWindow::mat_to_qimage(Mat& img)
     return QImage((uchar*) img.data, img.cols, img.rows, img.step, QImage::Format_RGB888);
 }
 
-
 void MainWindow::on_saveBtn_clicked()
 {
     QString selFilter="JPG image files (*.jpg)";
@@ -136,11 +140,14 @@ void MainWindow::on_saveBtn_clicked()
         fileName = fileName + ".jpg";
     }
 
-    Mat temp;
+    Mat temp(data.Image().rows, data.Image().cols, CV_8UC1);
     cvtColor(data.Image(), temp, CV_RGB2BGR);
 
-//    TODO: invistigate this issue
-//    imwrite(fileName.toStdString().c_str(), temp);
+    vector<int> compression_params;
+    compression_params.push_back(CV_IMWRITE_JPEG_QUALITY);
+    compression_params.push_back(100);
+
+    imwrite(fileName.toStdString().c_str(), temp, compression_params);
 }
 
 void MainWindow::on_convertGrayScaleBtn_clicked()

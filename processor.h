@@ -2,6 +2,7 @@
 #define PROCESSOR_H
 
 #include "cv.h"
+#include "highgui.h"
 #include <cstdlib>
 #include <time.h>
 using namespace cv;

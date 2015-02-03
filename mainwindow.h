@@ -1,11 +1,17 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <vector>
+#include <opencv2/opencv.hpp>
+
 #include <QMainWindow>
-#include "projecdata.h"
 #include <QImage>
 #include <QPixmap>
+#include "projecdata.h"
 #include "processor.h"
+
+using namespace cv;
+using namespace std;
 
 namespace Ui {
 class MainWindow;
@@ -42,6 +48,8 @@ private slots:
     void on_thresholdBinBtn_clicked();
 
     void on_thresholdBinSlide_sliderMoved(int position);
+
+    void on_slicingBtn_clicked();
 
 private:
     Ui::MainWindow *ui;

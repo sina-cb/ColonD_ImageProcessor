@@ -11,8 +11,6 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = ColonD_ImageProcessor
 TEMPLATE = app
 
-QMAKE_CXXFLAGS += -Wall -Wextra -O0 -g -D_GLIBCXX_DEBUG
-
 INCLUDEPATH += /opt/ros/hydro/include/opencv\
             /opt/ros/hydro/include
 
