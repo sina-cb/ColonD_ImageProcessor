@@ -5,6 +5,8 @@
 #include <QDir>
 #include <QDebug>
 
+#include <boost/date_time/posix_time/posix_time.hpp>
+#include <boost/thread.hpp>
 #include "loadimage.h"
 #include "captureimage.h"
 #include "histogramutility.h"
@@ -99,10 +101,33 @@ void MainWindow::on_slicingBtn_clicked()
     vector<int> compression_params;
     compression_params.push_back(CV_IMWRITE_JPEG_QUALITY);
     compression_params.push_back(100);
+
+    QString dirPath = QFileDialog::getExistingDirectory(this, "Select a folder", QDir::currentPath(), QFileDialog::ShowDirsOnly);
+
     for (int i = 0; i < num_slices; i++){
-        imwrite("/home/sina/Desktop/test_last.jpg", results[i], compression_params);
+        QString file_path = QString("%1/sliced_image #%2.jpg").arg(dirPath, QString::number(i + 1));
+        imwrite(file_path.toStdString().c_str(), results[i], compression_params);
     }
 
+    boost::thread thread(&MainWindow::show_animated_images, this, results, num_slices);
+
+}
+
+void MainWindow::show_animated_images(Mat *images, int number_of_images){
+    namedWindow("Sliced Images", CV_WINDOW_FREERATIO);
+    resizeWindow("Sliced Images", 640, 480);
+    int i = 0;
+    int rounds = 0;
+    while(rounds < 2){
+        imshow("Sliced Images", images[i]);
+
+        boost::this_thread::sleep(boost::posix_time::milliseconds(500));
+        i++;
+        if (i == number_of_images){
+            i = 0;
+            rounds++;
+        }
+    }
 }
 
 void MainWindow::updateHistogram(){
@@ -173,6 +198,46 @@ void MainWindow::on_noisePercentSlider_sliderMoved(int position)
     Mat noisy = process.add_noise(data.Image(), position);
     ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(noisy)));
     updateHistogram();
+}
+
+void MainWindow::on_Enhance_clicked()
+{
+    int lowerBound = ui->contrastLowerTxt->text().toInt();
+    int higherBound = ui->contrastHigherTxt->text().toInt();
+
+    Mat enhanced = process.contrast_enhance(data.Image(), lowerBound, higherBound);
+    data.Image(enhanced);
+    ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(data.Image())));
+    updateHistogram();
+}
+
+void MainWindow::on_iterativeBtn_clicked()
+{
+    Mat binary = process.iterative_thresholding(data.Image());
+    data.Image(binary);
+    ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(data.Image())));
+    updateHistogram();
+}
+
+void MainWindow::on_adaptiveBtn_clicked()
+{
+    int num_tiles = ui->adaptiveThresholdTxt->text().toInt();
+
+    Mat binary = process.adaptive_thresholding(data.Image(), num_tiles);
+    data.Image(binary);
+    ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(data.Image())));
+    updateHistogram();
+}
+
+void MainWindow::on_pTileBtn_clicked()
+{
+    int p_tile = ui->pTileTxt->text().toInt();
+
+    Mat binary = process.p_tile_thresholding(data.Image(), p_tile);
+    data.Image(binary);
+    ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(data.Image())));
+    updateHistogram();
+
 }
 
 void MainWindow::on_smoothBtn_clicked()

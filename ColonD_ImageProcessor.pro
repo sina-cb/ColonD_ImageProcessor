@@ -15,7 +15,7 @@ INCLUDEPATH += /opt/ros/hydro/include/opencv\
             /opt/ros/hydro/include
 
 LIBS += "/opt/ros/hydro/lib/*.so"
-LIBS +=  -L /usr/lib -lutil -lboost_iostreams -lboost_system -lboost_filesystem
+LIBS += -L /usr/lib -lutil -lboost_iostreams -lboost_system -lboost_filesystem -lboost_thread
 
 SOURCES += main.cpp\
         mainwindow.cpp \

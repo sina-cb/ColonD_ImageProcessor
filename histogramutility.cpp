@@ -55,6 +55,8 @@ QImage HistogramUtility::getHistogramImage(Mat& img){
 }
 
 void HistogramUtility::getHistogram(Mat &img, int *hist){
+    for (int i = 0; i < 256; i++)
+        hist[i] = 0;
     for(int i = 0; i < img.cols; i++)
     {
         for(int j = 0; j < img.rows; j++)

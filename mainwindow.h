@@ -27,6 +27,8 @@ public:
     void resizeScrollArea(Mat& img);
     void updateHistogram();
 
+    void show_animated_images(Mat* images, int number_of_images);
+
     ~MainWindow();
 
 private slots:
@@ -50,6 +52,14 @@ private slots:
     void on_thresholdBinSlide_sliderMoved(int position);
 
     void on_slicingBtn_clicked();
+
+    void on_Enhance_clicked();
+
+    void on_iterativeBtn_clicked();
+
+    void on_pTileBtn_clicked();
+
+    void on_adaptiveBtn_clicked();
 
 private:
     Ui::MainWindow *ui;
