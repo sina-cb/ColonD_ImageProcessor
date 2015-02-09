@@ -1,4 +1,4 @@
-﻿#include "processor.h"
+﻿    #include "processor.h"
 #include "histogramutility.h"
 #include <math.h>
 #include <algorithm>
