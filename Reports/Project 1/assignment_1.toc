@@ -5,7 +5,7 @@
 \contentsline {section}{III. Histogram view}{4}
 \contentsline {section}{IV. Gray Scale Conversion}{4}
 \contentsline {section}{V. Add Noise}{5}
-\contentsline {section}{VI. Add Noise}{5}
+\contentsline {section}{VI. Smoothing The Image}{5}
 \contentsline {subsection}{(a) Average Filter}{6}
 \contentsline {subsection}{(b) Median Filter}{6}
 \contentsline {section}{VII. Contrast Enhancement}{7}
