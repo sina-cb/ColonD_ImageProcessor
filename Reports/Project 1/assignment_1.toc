@@ -15,4 +15,4 @@
 \contentsline {subsection}{(c) Iterative Thresholding}{8}
 \contentsline {subsection}{(d) Adaptive Thresholding}{9}
 \contentsline {subsection}{(e) Image Slicing}{9}
-\contentsline {section}{IX. Contrast Enhancement}{10}
+\contentsline {section}{IX. Conclusion}{10}
