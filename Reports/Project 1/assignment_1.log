@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2015.2.8)  9 FEB 2015 02:14
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2015.2.8)  9 FEB 2015 02:19
 entering extended mode
  %&-line parsing enabled.
 **assignment_1.tex
@@ -265,37 +265,39 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [6 <./average.png (PNG copy)> <./median.png (PNG copy)>]
 <enhance.png, id=41, 429.52925pt x 157.49405pt>
 File: enhance.png Graphic file (type png)
- <use enhance.png> [7 <./big_median.jpg> <./enhance.png>] <simple_t.png, id=47,
- 1027.84pt x 513.92pt>
-File: simple_t.png Graphic file (type png)
+ <use enhance.png> [7 <./big_median.jpg> <./enhance.png>] <simple1.jpg, id=47, 
+1927.2pt x 1204.5pt>
+File: simple1.jpg Graphic file (type jpg)
 
-<use simple_t.png> <p_tile.jpg, id=48, 632.3625pt x 231.86626pt>
+<use simple1.jpg> <simple2.jpg, id=48, 1927.2pt x 1204.5pt>
+File: simple2.jpg Graphic file (type jpg)
+ <use simple2.jpg>
+<p_tile.jpg, id=49, 632.3625pt x 231.86626pt>
 File: p_tile.jpg Graphic file (type jpg)
-
-<use p_tile.jpg> <iterative.jpg, id=49, 513.92pt x 513.92pt>
+ <use p_tile.jpg>
+<iterative.jpg, id=50, 513.92pt x 513.92pt>
 File: iterative.jpg Graphic file (type jpg)
-
-<use iterative.jpg>
+ <use iterative.jpg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[8 <./simple_t.png (PNG copy)> <./p_tile.jpg>]
-<adaptive.jpg, id=53, 513.92pt x 513.92pt>
+[8 <./simple1.jpg> <./simple2.jpg> <./p_tile.jpg>]
+<adaptive.jpg, id=54, 513.92pt x 513.92pt>
 File: adaptive.jpg Graphic file (type jpg)
  <use adaptive.jpg>
-<slice1.jpg, id=54, 513.92pt x 513.92pt>
+<slice1.jpg, id=55, 513.92pt x 513.92pt>
 File: slice1.jpg Graphic file (type jpg)
  <use slice1.jpg>
-<slice2.jpg, id=55, 513.92pt x 513.92pt>
+<slice2.jpg, id=56, 513.92pt x 513.92pt>
 File: slice2.jpg Graphic file (type jpg)
  <use slice2.jpg>
-<slice3.jpg, id=56, 513.92pt x 513.92pt>
+<slice3.jpg, id=57, 513.92pt x 513.92pt>
 File: slice3.jpg Graphic file (type jpg)
  <use slice3.jpg>
-<slice4.jpg, id=57, 513.92pt x 513.92pt>
+<slice4.jpg, id=58, 513.92pt x 513.92pt>
 File: slice4.jpg Graphic file (type jpg)
  <use slice4.jpg>
-<slice5.jpg, id=58, 513.92pt x 513.92pt>
+<slice5.jpg, id=59, 513.92pt x 513.92pt>
 File: slice5.jpg Graphic file (type jpg)
  <use slice5.jpg>
 
@@ -305,10 +307,10 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 ice1.jpg> <./slice2.jpg> <./slice3.jpg> <./slice4.jpg> <./slice5.jpg>]
 (./assignment_1.aux) ) 
 Here is how much of TeX's memory you used:
- 3761 strings out of 493848
- 50868 string characters out of 1152824
+ 3766 strings out of 493848
+ 50937 string characters out of 1152824
  225515 words of memory out of 3000000
- 6994 multiletter control sequences out of 15000+50000
+ 6998 multiletter control sequences out of 15000+50000
  11040 words of font info for 39 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  33i,11n,58p,781b,1061s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -322,9 +324,9 @@ msfonts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
 r9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
 r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/tex
 mf-texlive/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on assignment_1.pdf (10 pages, 3402319 bytes).
+Output written on assignment_1.pdf (10 pages, 4458440 bytes).
 PDF statistics:
- 100 PDF objects out of 1000 (max. 8388607)
+ 101 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 86 words of extra memory for PDF output out of 10000 (max. 10000000)
 
