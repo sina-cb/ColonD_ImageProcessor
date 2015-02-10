@@ -42,7 +42,7 @@
 % Set up the header and footer
 \pagestyle{fancy}
 \lhead{\hmwkAuthorName} % Top left header
-\chead{\hmwkClass\ (\hmwkClassInstructor\ \hmwkClassTime): \hmwkTitle} % Top center header
+\chead{\hmwkClass} % Top center header   -->  \ (\hmwkClassInstructor\ \hmwkClassTime): \hmwkTitle
 \rhead{\firstxmark} % Top right header
 \lfoot{\lastxmark} % Bottom left footer
 \cfoot{} % Bottom center footer
@@ -147,7 +147,7 @@
 This project is aimed to get us more familiar with different Image Processing techniques. The overall work flow of this project is to read an image from an image source (here, the image source can be either a JPEG file or the computer's camera) and apply different image processing algorithms in the image separately and in combination.
 
 
-I am using C++ programming language along with OpenCV library to implement the algorithms in this project. I chose C++ over other programming languages because of its superior performance and less overhead comparing to other high-level programming language like Java or Python. Furthermore, I am using OpenCV just to read/write images from/to a file and also to maintain the image structure in the system. All other operations are implemented without any use of existing functions.
+I am using C++ programming language along with OpenCV library to implement the algorithms in this project. I chose C++ over other programming languages because of its superior performance and less overhead comparing to other high-level programming languages like Java or Python. Furthermore, I am using OpenCV just to read/write images from/to a file and also to maintain the image structure in the system. All other operations are implemented without any use of existing functions.
 
 In this phase of the project, the following features have been implemented which will be discussed in more detail in the following sections:
 
@@ -184,7 +184,7 @@ In this section, I will go over some of the basic operations implemented in the 
 
 \begin{homeworkSection}{(a) Read/Write operations} % Section within problem
 
-For these two operations, I am using OpenCV's imread and imwrite functions. The imread function will read an image file and load it into a Mat data structure which is the image structure in OpenCV. On the other hand, the imwrite function will get as parameter a Mat object and will serialize it to the filesystem.
+For these two operations, I am using OpenCV's \textit{"imread"} and \textit{"imwrite"} functions. The imread function will read an image file and load it into a Mat data structure which is the image structure used in OpenCV. On the other hand, the imwrite function will get as parameter a Mat object and will serialize it to the filesystem.
 
 I faced some difficulties using these two functions. An example of these difficulties was the incompatibilities between color spaces. The imread function reads an image in BGR color space and I was processing the image in RGB space. This forced me to convert the read images to RGB, after reading it and, convert them back to BGR before writing to the filesystem.
 
@@ -204,7 +204,7 @@ Again, this image capturing process had the exact same problem with the color sp
 %	Histogram
 %----------------------------------------------------------------------------------------
 
-\begin{homeworkProblem}[\Roman{homeworkProblemCounter}. Histogram view]
+\begin{homeworkProblem}[\Roman{homeworkProblemCounter}. Histogram View]
 After opening or capturing an image in the program, a new window will appear which is consisted of the histogram of the image. For simplification, I have used the red channel to create and show the histogram and this will allow us to show almost the same histograms for both an color image and the gray scale version of it. This could be done by creating four different histograms, one for each RGB channels and one for the average of the three values.
 
 To create the histogram chart, I have used GNU-Plot program installed on an UBUNTU machine. Each time the image changes, I will update its histogram and send it over to GNU-plot to create the chart. Then, I use the created histogram to update the Histogram view in the program.
@@ -245,9 +245,9 @@ Also, the following image is the result from converting the original version of 
 
 \begin{homeworkProblem}[\Roman{homeworkProblemCounter}. Add Noise]
 
-For learning purposes, we needed to add some artificially created noise to our images. In my project, using a slider control, one can add different amounts of noise to the opened image. The implementation of this feature was very simple but again, it could be done in different ways. What I am doing is, I get a totally random number in \textit{P} percent of the pixels and replace the pixel value with the random number. Another way of doing this is to generate a random number and add the random value to the pixel values.
+For learning purposes, we needed to add some artificially created noise to our images. In my project, using a slider control, one can add different amounts of noise to the opened image. The implementation of this feature was very simple but again, it could be done in different ways. What I am doing is, I generate a random number in \textit{P\%} of the pixels and replace the pixel value with the random value. Another way of doing this is to generate a random number and add the random value to the pixel values.
 
-The user can use the slider to change the amount of added noise to the picture and by clicking on the "Apply" button the noise will be added to the image. If one forgets to click on the apply button to decide not to add noise to the image, the noise will not be applied and the original image will remain intact.
+The user can use the slider to change the amount of added noise to the picture and by clicking on the "Apply" button the noise will be added to the image. If one forgets to click on the apply button or decide not to add noise to the image, the noise will not be applied and the original image will remain intact.
 
 \begin{figure}[h!]
   \centering
@@ -284,7 +284,7 @@ This algorithm will leave out a few pixels from each side of the image and will 
 
 \begin{homeworkSection}{(b) Median Filter} % Section within problem
 
-This filter will find the pixel values in corresponding to the filter elements, sort them and use the middle value (the median) to represent all other pixels as well for the pixel corresponding to the filter's middle element.
+This filter will find the pixel values in corresponding to the filter elements, sort them and use the middle value (the median) to represent all other pixels. Then we replace the pixel corresponding to the filter's middle element.
 
 I realized that this smoothing technique will work very well on noisy images I created using the Add Noise feature. The following figure will compare both the noisy and the smoothed image together. As you can see, the resulting smoothed image has a huge improved \textbf{visual quality}  comparing to the noisy image.
 
@@ -343,7 +343,7 @@ In the following sub-sections I will present the results from running these tech
 
 \begin{homeworkSection}{(a) Simple Thresholding} % Section within problem
 
-A simple threshold will be used in this technique and simply turns all the pixels below that threshold to black and the others to white. An example of this technique can be seen in the following figure,
+A simple threshold will be used in this technique and simply turns all of the pixels below that threshold to black and the others to white. An example of this technique can be seen in the following figure,
 
 \begin{figure}[h!]
   \centering
@@ -370,7 +370,7 @@ In this method, we get the \textit{P} value and use it to find the \textit{Pth} 
 
 \begin{homeworkSection}{(c) Iterative Thresholding} % Section within problem
 
-This is just the implementation of the Iterative method discussed in the class. It doesn't need any input parameters and I will use 128 as the initial threshold value. The resulting image after applying this function on lena's image is depicted in the following figure.
+This is just the implementation of the Iterative method discussed in the class. It doesn't need any input parameters and I am using 128 as the initial threshold value. The resulting image after applying this function on lena's image is depicted in the following figure.
 
 \begin{figure}[h!]
   \centering

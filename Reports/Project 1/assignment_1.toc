@@ -2,7 +2,7 @@
 \contentsline {section}{II. Basic operations}{3}
 \contentsline {subsection}{(a) Read/Write operations}{3}
 \contentsline {subsection}{(b) Capture image from camera}{4}
-\contentsline {section}{III. Histogram view}{4}
+\contentsline {section}{III. Histogram View}{4}
 \contentsline {section}{IV. Gray Scale Conversion}{4}
 \contentsline {section}{V. Add Noise}{5}
 \contentsline {section}{VI. Smoothing The Image}{5}
