@@ -3,6 +3,8 @@
 #include <math.h>
 #include <algorithm>
 #include <iostream>
+#include "boost/pending/disjoint_sets.hpp"
+#include <boost/unordered/unordered_set.hpp>
 
 using namespace cv;
 using namespace std;
@@ -84,7 +86,10 @@ Mat Processor::component_labeling(Mat &img, int white, int black){
         }
     }
 
-    map<int, int> equivalents;
+    vector<int> rank(2000);
+    vector<int> parent(2000);
+    boost::disjoint_sets<int*, int*> ds(&rank[0], &parent[0]);
+    boost::unordered_set<int> labels;
 
     for (int i = 0; i < img.rows; i++){
         for (int j = 0; j < img.cols; j++){
@@ -105,63 +110,57 @@ Mat Processor::component_labeling(Mat &img, int white, int black){
                 }
 
                 Vec3b& res_color = res.at<Vec3b>(Point(j, i));
+                int result_v = -1;
 
                 if (pixel_left == black && pixel_top == black){
                     current_label++;
 
-                    res_color[0] = current_label;
-                    res_color[1] = current_label;
-                    res_color[2] = current_label;
-                }else if (pixel_top == white && pixel_left == black){
-                    res_color[0] = res.at<Vec3b>(Point(j, i - 1))[0];
-                    res_color[1] = res.at<Vec3b>(Point(j, i - 1))[1];
-                    res_color[2] = res.at<Vec3b>(Point(j, i - 1))[2];
+                    cout << current_label << endl;
+
+                    ds.make_set(current_label);
+                    labels.insert(current_label);
+
+                    result_v = current_label;
+                }else if (pixel_left == black && pixel_top == white){
+
+                    result_v = res.at<Vec3b>(Point(j, i - 1))[0];
+
                 }else if (pixel_left == white && pixel_top == black){
-                    res_color[0] = res.at<Vec3b>(Point(j - 1, i))[0];
-                    res_color[1] = res.at<Vec3b>(Point(j - 1, i))[1];
-                    res_color[2] = res.at<Vec3b>(Point(j - 1, i))[2];
+
+                    result_v = res.at<Vec3b>(Point(j - 1, i))[0];
+
                 }else if (pixel_left == white && pixel_top == white){
                     int left_label = res.at<Vec3b>(Point(j - 1, i))[0];
                     int top_label = res.at<Vec3b>(Point(j, i - 1))[0];
 
-                    if (top_label != left_label){
-
-                        if (equivalents[top_label] != left_label && equivalents[left_label] != top_label){
-                            equivalents[top_label] = left_label;
-                        }
-
+                    if (left_label != top_label){
+                        ds.union_set(left_label, top_label);
                     }
 
-                    res_color[0] = left_label;
-                    res_color[1] = left_label;
-                    res_color[2] = left_label;
+                    result_v = left_label < top_label ? left_label : top_label;
+
                 }
+
+                if (result_v == -1){
+                    cout << "ERROR" << endl;
+                    exit(-1);
+                }
+
+                res_color[0] = result_v;
+                res_color[1] = result_v;
+                res_color[2] = result_v;
             }
 
         }
     }
 
-    for (int i = current_label; i > 0; i--){
-        if (equivalents[i] != 0){
-            vector<int> need_update;
-            need_update.push_back(i);
+    ds.normalize_sets(labels.begin(), labels.end());
+    cout << "Number of components: " << ds.count_sets(labels.begin(), labels.end()) << endl;
 
-            int temp = equivalents[i];
-            while(equivalents[temp] != 0){
-                if(std::find(need_update.begin(), need_update.end(), temp) == need_update.end()) {
-                    need_update.push_back(temp);
-                    temp = equivalents[temp];
-                }else{
-                    temp = *(std::min(need_update.begin(), need_update.end()));
-                    break;
-                }
-            }
 
-            for (size_t i = 0; i < need_update.size(); i++){
-                equivalents[need_update[i]] = temp;
-            }
-        }
-    }
+    int r[] = {0, 150, 175, 200, 225, 250, 25, 50, 75, 100, 125};
+    int g[] = {125, 150, 175, 200, 225, 250, 0, 25, 50, 75, 100};
+    int b[] = {0, 25, 50, 175, 200, 225, 150, 250, 75, 100, 125};
 
     map<int, int> final_eq;
     int index = 0;
@@ -171,16 +170,19 @@ Mat Processor::component_labeling(Mat &img, int white, int black){
             Vec3b& color = res.at<Vec3b>(Point(j, i));
             int temp = (int)color[0];
 
-            if (equivalents[temp] != 0){
-                temp = equivalents[temp];
-            }
+            temp = ds.find_set(temp);
 
             if (color[0] != 0){
                 if (final_eq[temp] == 0){
                     index++;
                     final_eq[temp] = index;
                 }
-                color[0] = color[1] = color[2] = final_eq[temp] + 100;
+
+                int index = (final_eq[temp] * 13) % 11;
+
+                color[0] = r[index];
+                color[1] = g[index];
+                color[2] = b[index];
 
                 area++;
             }else{
