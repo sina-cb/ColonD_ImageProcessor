@@ -63,6 +63,10 @@ private slots:
 
     void on_componentLabelingBtn_clicked();
 
+    void on_invertBtn_clicked();
+
+    void on_robertsOpBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
     ProjecData data;

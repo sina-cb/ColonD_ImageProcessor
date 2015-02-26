@@ -5,6 +5,9 @@
 #include "highgui.h"
 #include <cstdlib>
 #include <time.h>
+#include <map>
+#include <vector>
+#include <algorithm>
 using namespace cv;
 
 class Processor
@@ -15,6 +18,7 @@ public:
     void convert_to_grayscale(Mat& img);
     Mat add_noise(Mat& img, int percent);
     Mat apply_filter(Mat& img, double** filter, int filter_w, int threshold = 256);
+    Mat apply_even_filter(Mat& img, double** filter, int filter_w);
     Mat median_filter(Mat& img, int filter_w);
     Mat threshold_binary(Mat& img, int threshold = 128);
     Mat contrast_enhance(Mat& img, int lower = 0, int higher = 255);
@@ -22,6 +26,11 @@ public:
     Mat iterative_thresholding(Mat& img, int init_threshold = 128, double diff_threshold = 1, int max_iterations = 255);
     Mat p_tile_thresholding(Mat& img, int p_tile);
     Mat adaptive_thresholding(Mat& img, int num_tiles);
+
+    Mat invert(Mat& img);
+    Mat component_labeling(Mat& img, int white = 255, int black = 0);
+
+    Mat roberts(Mat& img);
 
 };
 

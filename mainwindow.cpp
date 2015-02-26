@@ -242,7 +242,10 @@ void MainWindow::on_pTileBtn_clicked()
 
 void MainWindow::on_componentLabelingBtn_clicked()
 {
-    exit(0);
+    Mat components = process.component_labeling(data.Image());
+    data.Image(components);
+    ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(data.Image())));
+    updateHistogram();
 }
 
 void MainWindow::on_smoothBtn_clicked()
@@ -295,5 +298,21 @@ void MainWindow::on_thresholdBinSlide_sliderMoved(int position)
 {
     Mat binary = process.threshold_binary(data.Image(), position);
     ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(binary)));
+    updateHistogram();
+}
+
+void MainWindow::on_invertBtn_clicked()
+{
+    Mat invert = process.invert(data.Image());
+    data.Image(invert);
+    ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(invert)));
+    updateHistogram();
+}
+
+void MainWindow::on_robertsOpBtn_clicked()
+{
+    Mat roberts = process.roberts(data.Image());
+    data.Image(roberts);
+    ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(data.Image())));
     updateHistogram();
 }
