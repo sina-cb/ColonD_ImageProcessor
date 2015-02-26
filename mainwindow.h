@@ -61,6 +61,8 @@ private slots:
 
     void on_adaptiveBtn_clicked();
 
+    void on_componentLabelingBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
     ProjecData data;

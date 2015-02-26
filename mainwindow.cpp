@@ -240,6 +240,11 @@ void MainWindow::on_pTileBtn_clicked()
 
 }
 
+void MainWindow::on_componentLabelingBtn_clicked()
+{
+    exit(0);
+}
+
 void MainWindow::on_smoothBtn_clicked()
 {
     int filterWidth = ui->filterWidthTxt->text().toInt();

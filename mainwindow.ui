@@ -74,8 +74,6 @@
        <string/>
       </property>
      </widget>
-     <zorder>imageLbl</zorder>
-     <zorder>label_10</zorder>
     </widget>
    </widget>
    <widget class="QPushButton" name="saveBtn">
@@ -101,7 +99,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="firstTab">
      <attribute name="title">
@@ -382,35 +380,37 @@
        </layout>
       </widget>
      </widget>
-     <zorder>thresholdBinSlide</zorder>
-     <zorder>Enhance</zorder>
-     <zorder>slicingBtn</zorder>
-     <zorder>label_4</zorder>
-     <zorder>label_2</zorder>
-     <zorder>label_9</zorder>
-     <zorder>applyNoiseBtn</zorder>
-     <zorder>medianBtn</zorder>
-     <zorder>thresholdBinBtn</zorder>
-     <zorder>smoothBtn</zorder>
-     <zorder>label_3</zorder>
-     <zorder>filterWidthTxt</zorder>
-     <zorder>label_7</zorder>
-     <zorder>noisePercentSlider</zorder>
-     <zorder>label_8</zorder>
-     <zorder>medianFilterWidthTxt</zorder>
-     <zorder>label</zorder>
-     <zorder>contrastLowerTxt</zorder>
-     <zorder>convertGrayScaleBtn</zorder>
-     <zorder>slicerSlide</zorder>
-     <zorder>label_5</zorder>
-     <zorder>label_6</zorder>
-     <zorder>contrastHigherTxt</zorder>
-     <zorder>scrollArea_2</zorder>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
       <string>Phase 2</string>
      </attribute>
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>13</x>
+        <y>10</y>
+        <width>166</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Component Labeling</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="componentLabelingBtn">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>10</y>
+        <width>88</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Apply</string>
+      </property>
+     </widget>
     </widget>
    </widget>
   </widget>

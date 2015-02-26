@@ -1,0 +1,173 @@
+K 25
+svn:wc:ra_dav:version-url
+V 27
+/svn/!svn/ver/175/trunk/src
+END
+SharedImageBuffer.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/137/trunk/src/SharedImageBuffer.cpp
+END
+ProcessingThread.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/150/trunk/src/ProcessingThread.cpp
+END
+MainWindow.ui
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/167/trunk/src/MainWindow.ui
+END
+MatToQImage.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/140/trunk/src/MatToQImage.cpp
+END
+SharedImageBuffer.h
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/175/trunk/src/SharedImageBuffer.h
+END
+ProcessingThread.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/156/trunk/src/ProcessingThread.h
+END
+Config.h
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/140/trunk/src/Config.h
+END
+ImageProcessingSettingsDialog.ui
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/163/trunk/src/ImageProcessingSettingsDialog.ui
+END
+MainWindow.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/162/trunk/src/MainWindow.cpp
+END
+CameraConnectDialog.ui
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/137/trunk/src/CameraConnectDialog.ui
+END
+MatToQImage.h
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/140/trunk/src/MatToQImage.h
+END
+Buffer.h
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/137/trunk/src/Buffer.h
+END
+CameraView.ui
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/156/trunk/src/CameraView.ui
+END
+ImageProcessingSettingsDialog.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/163/trunk/src/ImageProcessingSettingsDialog.cpp
+END
+MainWindow.h
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/162/trunk/src/MainWindow.h
+END
+CameraConnectDialog.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/140/trunk/src/CameraConnectDialog.cpp
+END
+qt-opencv-multithreaded.pro
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/168/trunk/src/qt-opencv-multithreaded.pro
+END
+CameraView.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/162/trunk/src/CameraView.cpp
+END
+main.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/108/trunk/src/main.cpp
+END
+ImageProcessingSettingsDialog.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/140/trunk/src/ImageProcessingSettingsDialog.h
+END
+CameraConnectDialog.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/140/trunk/src/CameraConnectDialog.h
+END
+COPYING
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/108/trunk/src/COPYING
+END
+CameraView.h
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/140/trunk/src/CameraView.h
+END
+Structures.h
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/139/trunk/src/Structures.h
+END
+FrameLabel.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/140/trunk/src/FrameLabel.cpp
+END
+CaptureThread.cpp
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/141/trunk/src/CaptureThread.cpp
+END
+FrameLabel.h
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/140/trunk/src/FrameLabel.h
+END
+CaptureThread.h
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/156/trunk/src/CaptureThread.h
+END
