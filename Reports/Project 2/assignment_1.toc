@@ -1,0 +1,18 @@
+\contentsline {section}{I. Introduction to \textit {"ColonD Image Processing"}}{3}
+\contentsline {section}{II. Basic operations}{3}
+\contentsline {subsection}{(a) Read/Write operations}{3}
+\contentsline {subsection}{(b) Capture image from camera}{4}
+\contentsline {section}{III. Histogram View}{4}
+\contentsline {section}{IV. Gray Scale Conversion}{4}
+\contentsline {section}{V. Add Noise}{4}
+\contentsline {section}{VI. Smoothing The Image}{5}
+\contentsline {subsection}{(a) Average Filter}{5}
+\contentsline {subsection}{(b) Median Filter}{5}
+\contentsline {section}{VII. Contrast Enhancement}{5}
+\contentsline {section}{VIII. Binarization an image}{6}
+\contentsline {subsection}{(a) Simple Thresholding}{6}
+\contentsline {subsection}{(b) P-Tile Thresholding}{6}
+\contentsline {subsection}{(c) Iterative Thresholding}{6}
+\contentsline {subsection}{(d) Adaptive Thresholding}{7}
+\contentsline {subsection}{(e) Image Slicing}{7}
+\contentsline {section}{IX. Conclusion}{7}
