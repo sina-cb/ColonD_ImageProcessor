@@ -67,6 +67,16 @@ private slots:
 
     void on_robertsOpBtn_clicked();
 
+    void on_sobelOpBtn_clicked();
+
+    void on_prewittOpBtn_clicked();
+
+    void on_kirschOpBtn_clicked();
+
+    void on_laplacianOpBtn_clicked();
+
+    void on_gaussianBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
     ProjecData data;

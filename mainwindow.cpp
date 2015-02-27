@@ -316,3 +316,56 @@ void MainWindow::on_robertsOpBtn_clicked()
     ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(data.Image())));
     updateHistogram();
 }
+
+void MainWindow::on_sobelOpBtn_clicked()
+{
+    Mat sobels = process.sobel(data.Image());
+    data.Image(sobels);
+    ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(data.Image())));
+    updateHistogram();
+}
+
+void MainWindow::on_prewittOpBtn_clicked()
+{
+    Mat prewitt = process.sobel(data.Image());
+    data.Image(prewitt);
+    ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(data.Image())));
+    updateHistogram();
+}
+
+
+void MainWindow::on_kirschOpBtn_clicked()
+{
+    int images_count = 5;
+
+    Mat* results = process.kirsch(data.Image());
+
+    vector<int> compression_params;
+    compression_params.push_back(CV_IMWRITE_JPEG_QUALITY);
+    compression_params.push_back(100);
+
+    QString dirPath = QFileDialog::getExistingDirectory(this, "Select a folder", QDir::currentPath(), QFileDialog::ShowDirsOnly);
+
+    for (int i = 0; i < images_count; i++){
+        QString file_path = QString("%1/kirsch_result #%2.jpg").arg(dirPath, QString::number(i + 1));
+        imwrite(file_path.toStdString().c_str(), results[i], compression_params);
+    }
+
+    boost::thread thread(&MainWindow::show_animated_images, this, results, images_count);
+}
+
+void MainWindow::on_laplacianOpBtn_clicked()
+{
+    Mat laplacian = process.laplacian(data.Image());
+    data.Image(laplacian);
+    ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(data.Image())));
+    updateHistogram();
+}
+
+void MainWindow::on_gaussianBtn_clicked()
+{
+    Mat gaussian = process.gaussian(data.Image());
+    data.Image(gaussian);
+    ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(data.Image())));
+    updateHistogram();
+}

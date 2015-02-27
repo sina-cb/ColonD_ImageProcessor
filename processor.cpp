@@ -29,32 +29,210 @@ Mat Processor::invert(Mat &img){
     return res;
 }
 
+Mat* Processor::kirsch(Mat& img){
+
+    Mat* results = new Mat[5];
+
+    Mat res_1(img.rows, img.cols, img.type());
+    Mat res_2(img.rows, img.cols, img.type());
+    Mat res_3(img.rows, img.cols, img.type());
+    Mat res_4(img.rows, img.cols, img.type());
+
+    Point anchor(1, 1);
+    double delta = 0;
+    int ddepth = -1;
+    const int filter_width = 3;
+
+    float elements_1[filter_width * filter_width] = {-1, 0, 1, -1, 0, 1, -1, 0, 1};
+    float elements_2[filter_width * filter_width] = {1, 1, 1, 0, 0, 0, -1, -1, -1};
+    float elements_3[filter_width * filter_width] = {0, 1, 1, -1, 0, 1, -1, -1, 0};
+    float elements_4[filter_width * filter_width] = {1, 1, 0, 1, 0, -1, 0, -1, -1};
+
+    Mat kernel_1(Size(filter_width, filter_width), CV_32F, elements_1);
+    filter2D(img, res_1, ddepth, kernel_1, anchor, delta, BORDER_DEFAULT);
+
+    Mat kernel_2(Size(filter_width, filter_width), CV_32F, elements_2);
+    filter2D(img, res_2, ddepth, kernel_2, anchor, delta, BORDER_DEFAULT);
+
+    Mat kernel_3(Size(filter_width, filter_width), CV_32F, elements_3);
+    filter2D(img, res_3, ddepth, kernel_3, anchor, delta, BORDER_DEFAULT);
+
+    Mat kernel_4(Size(filter_width, filter_width), CV_32F, elements_4);
+    filter2D(img, res_4, ddepth, kernel_4, anchor, delta, BORDER_DEFAULT);
+
+    Mat res(img.rows, img.cols, img.type());
+    for(int i = 0; i < img.cols; i++){
+        for(int j = 0; j < img.rows; j++){
+            Vec3b& color1 = res_1.at<Vec3b>(Point(i, j));
+            Vec3b& color2 = res_2.at<Vec3b>(Point(i, j));
+            Vec3b& color3 = res_3.at<Vec3b>(Point(i, j));
+            Vec3b& color4 = res_4.at<Vec3b>(Point(i, j));
+
+            Vec3b& color_res = res.at<Vec3b>(Point(i, j));
+
+            int max = color1[0] > color2[0] ? color1[0] : color2[0];
+            max = max > color3[0] ? max : color3[0];
+            max = max > color4[0] ? max : color4[0];
+
+            color_res[0] = max;
+            color_res[1] = max;
+            color_res[2] = max;
+        }
+    }
+
+    results[0] = res_1;
+    results[1] = res_2;
+    results[2] = res_3;
+    results[3] = res_4;
+    results[4] = res;
+
+    return results;
+}
+
+Mat Processor::prewitt(Mat &img){
+    Mat res_x(img.rows, img.cols, img.type());
+    Mat res_y(img.rows, img.cols, img.type());
+
+    Point anchor(1, 1);
+    double delta = 0;
+    int ddepth = -1;
+    const int filter_width = 3;
+
+    float elements_x[filter_width * filter_width] = {-1, 0, 1, -1, 0, 1, -1, 0, 1};
+    float elements_y[filter_width * filter_width] = {-1, -1, -1, 0, 0, 0, 1, 1, 1};
+
+    Mat kernel_x(Size(filter_width, filter_width), CV_32F, elements_x);
+    filter2D(img, res_x, ddepth, kernel_x, anchor, delta, BORDER_DEFAULT);
+
+    Mat kernel_y(Size(filter_width, filter_width), CV_32F, elements_y);
+    filter2D(img, res_y, ddepth, kernel_y, anchor, delta, BORDER_DEFAULT);
+
+    Mat res(img.rows, img.cols, img.type());
+    for(int i = 0; i < img.cols; i++){
+        for(int j = 0; j < img.rows; j++){
+            Vec3b& color1 = res_x.at<Vec3b>(Point(i, j));
+            Vec3b& color2 = res_y.at<Vec3b>(Point(i, j));
+
+            Vec3b& color_res = res.at<Vec3b>(Point(i, j));
+
+            int sum = sqrt(color1[0] * color1[0] + color2[0] * color2[0]);
+
+            sum = sum > 255 ? 255:sum;
+            sum = sum < 0 ? 0 : sum;
+
+            color_res[0] = sum;
+            color_res[1] = sum;
+            color_res[2] = sum;
+        }
+    }
+
+    return res;
+}
+
+Mat Processor::gaussian(Mat &img){
+    Mat res(img.rows, img.cols, img.type());
+
+    Point anchor(1, 1);
+    double delta = 0;
+    int ddepth = -1;
+    const int filter_width = 7;
+
+    float elements[filter_width * filter_width] = {0.00000067, 0.00002292, 0.00019117, 0.00038771, 0.00019117, 0.00002292, 0.00000067,
+                                                  0.00002292, 0.00078634, 0.00655965, 0.01330373, 0.00655965, 0.00078633, 0.00002292,
+                                                  0.00019117, 0.00655965, 0.05472157, 0.11098164, 0.05472157, 0.00655965, 0.00019117,
+                                                  0.00038771, 0.01330373, 0.11098164, 0.22508352, 0.11098164, 0.01330373, 0.00038771,
+                                                  0.00019117, 0.00655965, 0.05472157, 0.11098164, 0.05472157, 0.00655965, 0.00019117,
+                                                  0.00002292, 0.00078634, 0.00655965, 0.01330373, 0.00655965, 0.00078633, 0.00002292,
+                                                  0.00000067, 0.00002292, 0.00019117, 0.00038771, 0.00019117, 0.00002292, 0.00000067
+                                                  };
+
+    Mat kernel(Size(filter_width, filter_width), CV_32F, elements);
+    filter2D(img, res, ddepth, kernel, anchor, delta, BORDER_DEFAULT);
+
+    return res;
+}
+
+Mat Processor::laplacian(Mat &img){
+    Mat res(img.rows, img.cols, img.type());
+
+    Point anchor(1, 1);
+    double delta = 0;
+    int ddepth = -1;
+    const int filter_width = 3;
+
+    float elements[filter_width * filter_width] = {0, 1, 0, 1, -4, 1, 0, 1, 0};
+
+    Mat kernel(Size(filter_width, filter_width), CV_32F, elements);
+    filter2D(img, res, ddepth, kernel, anchor, delta, BORDER_DEFAULT);
+
+    return res;
+}
+
+Mat Processor::sobel(Mat &img){
+    Mat res_x(img.rows, img.cols, img.type());
+    Mat res_y(img.rows, img.cols, img.type());
+
+    Point anchor(1, 1);
+    double delta = 0;
+    int ddepth = -1;
+    const int filter_width = 3;
+
+    float elements_x[filter_width * filter_width] = {-1, 0, 1, -2, 0, 2, -1, 0, 1};
+    float elements_y[filter_width * filter_width] = {-1, -2, -1, 0, 0, 0, 1, 2, 1};
+
+    Mat kernel_x(Size(filter_width, filter_width), CV_32F, elements_x);
+    filter2D(img, res_x, ddepth, kernel_x, anchor, delta, BORDER_DEFAULT);
+
+    Mat kernel_y(Size(filter_width, filter_width), CV_32F, elements_y);
+    filter2D(img, res_y, ddepth, kernel_y, anchor, delta, BORDER_DEFAULT);
+
+    Mat res(img.rows, img.cols, img.type());
+    for(int i = 0; i < img.cols; i++){
+        for(int j = 0; j < img.rows; j++){
+            Vec3b& color1 = res_x.at<Vec3b>(Point(i, j));
+            Vec3b& color2 = res_y.at<Vec3b>(Point(i, j));
+
+            Vec3b& color_res = res.at<Vec3b>(Point(i, j));
+
+            int sum = sqrt(color1[0] * color1[0] + color2[0] * color2[0]);
+
+            sum = sum > 255 ? 255:sum;
+            sum = sum < 0 ? 0 : sum;
+
+            color_res[0] = sum;
+            color_res[1] = sum;
+            color_res[2] = sum;
+        }
+    }
+
+    return res;
+}
+
 Mat Processor::roberts(Mat &img){
-    int filterWidth = 3;
+    Mat res_x(img.rows, img.cols, img.type());
+    Mat res_y(img.rows, img.cols, img.type());
 
-    double **filter;
-    filter = new double *[filterWidth];
-    for(int i = 0; i < filterWidth; i++)
-        filter[i] = new double[filterWidth];
+    Point anchor(0, 1);
+    double delta = 0;
+    int ddepth = -1;
+    const int filter_width = 2;
 
-    filter[0][0] = 0;   filter[0][1] = 0;   filter[0][2] = 0;
-    filter[1][0] = 0;   filter[1][1] = 1;   filter[1][2] = 0;
-    filter[2][0] = 0;   filter[2][1] = 0;   filter[2][2] = -1;
-    Mat first = apply_filter(img, filter, filterWidth);
+    float elements_x[filter_width * filter_width] = {1.0, 0.0, 0.0, -1.0};
+    float elements_y[filter_width * filter_width] = {0.0, 1.0, -1.0, 0.0};
 
-    filter[0][0] = 0;   filter[0][1] = 0;   filter[0][2] = 0;
-    filter[1][0] = 0;   filter[1][1] = 0;   filter[1][2] = 1;
-    filter[2][0] = 0;   filter[2][1] = -1;   filter[2][2] = 0;
-    Mat second = apply_even_filter(img, filter, filterWidth);
+    Mat kernel_x(Size(filter_width, filter_width), CV_32F, elements_x);
+    filter2D(img, res_x, ddepth, kernel_x, anchor, delta, BORDER_DEFAULT);
 
-    Mat res(first.rows, first.cols, first.type());
+    Mat kernel_y(Size(filter_width, filter_width), CV_32F, elements_y);
+    filter2D(img, res_y, ddepth, kernel_y, anchor, delta, BORDER_DEFAULT);
 
-    for(int i = 0; i < img.cols - 1; i++){
-        for(int j = 1; j < img.rows; j++){
-            Vec3b& color1 = first.at<Vec3b>(Point(i, j - 1));
-            Vec3b& color2 = second.at<Vec3b>(Point(i, j - 1));
+    Mat res(img.rows, img.cols, img.type());
+    for(int i = 0; i < img.cols; i++){
+        for(int j = 0; j < img.rows; j++){
+            Vec3b& color1 = res_x.at<Vec3b>(Point(i, j));
+            Vec3b& color2 = res_y.at<Vec3b>(Point(i, j));
 
-            Vec3b& color_res = res.at<Vec3b>(Point(i, j - 1));
+            Vec3b& color_res = res.at<Vec3b>(Point(i, j));
 
             int sum = sqrt(color1[0] * color1[0] + color2[0] * color2[0]);
 

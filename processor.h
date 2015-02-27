@@ -31,6 +31,11 @@ public:
     Mat component_labeling(Mat& img, int white = 255, int black = 0);
 
     Mat roberts(Mat& img);
+    Mat sobel(Mat& img);
+    Mat prewitt(Mat& img);
+    Mat gaussian(Mat& img);
+    Mat laplacian(Mat& img);
+    Mat* kirsch(Mat& img);
 
 };
 
