@@ -1,18 +1,10 @@
-\contentsline {section}{I. Introduction to \textit {"ColonD Image Processing"}}{3}
-\contentsline {section}{II. Basic operations}{3}
-\contentsline {subsection}{(a) Read/Write operations}{3}
-\contentsline {subsection}{(b) Capture image from camera}{4}
-\contentsline {section}{III. Histogram View}{4}
-\contentsline {section}{IV. Gray Scale Conversion}{4}
-\contentsline {section}{V. Add Noise}{4}
-\contentsline {section}{VI. Smoothing The Image}{5}
-\contentsline {subsection}{(a) Average Filter}{5}
-\contentsline {subsection}{(b) Median Filter}{5}
-\contentsline {section}{VII. Contrast Enhancement}{5}
-\contentsline {section}{VIII. Binarization an image}{6}
-\contentsline {subsection}{(a) Simple Thresholding}{6}
-\contentsline {subsection}{(b) P-Tile Thresholding}{6}
-\contentsline {subsection}{(c) Iterative Thresholding}{6}
-\contentsline {subsection}{(d) Adaptive Thresholding}{7}
-\contentsline {subsection}{(e) Image Slicing}{7}
-\contentsline {section}{IX. Conclusion}{7}
+\contentsline {section}{I. Introduction}{3}
+\contentsline {section}{II. Connected Component Labelling}{3}
+\contentsline {section}{III. Invert}{4}
+\contentsline {section}{IV. Robert's Operator}{4}
+\contentsline {section}{V. Sobel's Operator}{6}
+\contentsline {section}{VI. Prewitt's Operator}{7}
+\contentsline {section}{VII. Kirsch's Operator}{7}
+\contentsline {section}{VIII. Laplacian Operator}{8}
+\contentsline {section}{IX. Guassian Filter}{8}
+\contentsline {section}{X. Conclusion}{10}

@@ -28,6 +28,9 @@
 \usepackage{extramarks} % Required for headers and footers
 \usepackage{graphicx} % Required to insert images
 \usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amsmath}
 
 % Margins
 \topmargin=-0.45in
@@ -99,8 +102,8 @@
 %	NAME AND CLASS SECTION
 %----------------------------------------------------------------------------------------
 
-\newcommand{\hmwkTitle}{Project\ \#1} % Assignment title
-\newcommand{\hmwkDueDate}{Tuesday,\ February\ 10,\ 2015} % Due date
+\newcommand{\hmwkTitle}{Project\ \#2} % Assignment title
+\newcommand{\hmwkDueDate}{Wednesday,\ March\ 4,\ 2015} % Due date
 \newcommand{\hmwkClass}{CSCI\ 8810} % Course/class
 \newcommand{\hmwkClassTime}{08:00am} % Class/lecture time
 \newcommand{\hmwkClassInstructor}{Prof. Arabnia} % Teacher/lecturer
@@ -143,274 +146,352 @@
 
 % To have just one problem per page, simply put a \clearpage after each problem
 
-\begin{homeworkProblem}[\Roman{homeworkProblemCounter}. Introduction to \textit{"ColonD Image Processing"}]
-This project is aimed to get us more familiar with different Image Processing techniques. The overall work flow of this project is to read an image from an image source (here, the image source can be either a JPEG file or the computer's camera) and apply different image processing algorithms in the image separately and in combination.
+\begin{homeworkProblem}[\Roman{homeworkProblemCounter}. Introduction]
+In this paper, I will discuss about the second phase of the ColonD Image processing project. The first phase of the project was about designing the overall structure of the project and implement some basic operations like read/write, gray-scale conversion, thresholding and smoothing images by applying filters. In this phase of the of the project, I will expand the program to include some other filtering operations and another slightly more complicated feature called Connected Components Labelling or CCL.
 
 
-I am using C++ programming language along with OpenCV library to implement the algorithms in this project. I chose C++ over other programming languages because of its superior performance and less overhead comparing to other high-level programming languages like Java or Python. Furthermore, I am using OpenCV just to read/write images from/to a file and also to maintain the image structure in the system. All other operations are implemented without any use of existing functions.
-
-In this phase of the project, the following features have been implemented which will be discussed in more detail in the following sections:
-
+The following list shows what new features have been added to the program in phase 2:
 \begin{itemize} \itemsep1pt \parskip0pt \parsep0pt
-  \item Read an image from the filesystem
-  \item Capture an image from the computer's camera
-  \item Create the image histogram and maintain it after each change
-  \item Enhance the image contrast using image histogram
-  \item Convert an image to a gray scale image
-  \item Add artificially created noise to the image
-  \item Smooth an image using "Average Filters"
-  \item Smooth an image using "Median Filters"
-  \item Convert an image to binary by simple thresholding 
-  \item Image slice thresholding an image
-  \item Iterative thresholding an image
-  \item Adaptive thresholding an image
-  \item P-tile thresholding an image
+  \item Connected Component Labelling (CCL)
+  \item Invert pixel colors
+  \item Robert's operator
+  \item Sobel's operator
+  \item Prewitt's operator
+  \item Kirsch's operator
+  \item Laplacian filter
+  \item Gaussian filter
 \end{itemize}
 
 These features are all implemented and tested with different images, individually and in combination of other operations. In the next sections, I will go over each one of these features in more detail and will present some results from the program.
 \end{homeworkProblem}
 
 %----------------------------------------------------------------------------------------
-%	Basic operations
+%	Component Labelling
 %----------------------------------------------------------------------------------------
 
-\begin{homeworkProblem}[\Roman{homeworkProblemCounter}. Basic operations]
-In this section, I will go over some of the basic operations implemented in the project. These operations are:
+% To have just one problem per page, simply put a \clearpage after each problem
 
+\begin{homeworkProblem}[\Roman{homeworkProblemCounter}. Connected Component Labelling]
+Connected Component Labelling is a well-known algorithm used to find individual components in an image. The idea behind this version of the algorithm is to check the surrounding pixels (in this case, the west and the north pixels) of a white pixel and assign appropriate label to the pixel in hand. Details of this pixel are as follows:
 \begin{enumerate} \itemsep1pt \parskip0pt \parsep0pt
-  \item Read/Write an image from/to the filesystem
-  \item Capture an image from the computer's camera
+  \item If the north and west pixels are black: Assign a new label to the pixel
+  \item If west pixel is white and the other one is black: Assign the label of the west pixel to the pixel in hand
+  \item If north pixel is white and the other one is black: Assign the label of the north pixel to the pixel in hand
+  \item If both west and north pixels are white: Assign to the pixel in hand, the smaller label of the two and record that the two labels are equivalent.
 \end{enumerate}
 
-\begin{homeworkSection}{(a) Read/Write operations} % Section within problem
+The algorithm described above is the first pass of the CCL algorithm. After labelling each pixel during the first pass, we need to go over all of the pixels and handle the equivalent labels found in the first pass. As the number of labels during the first pass might get very big, I am using a \textbf{Disjoint Set Data Structure}  implemented in \textbf{Boost framework}. The overall idea of the disjoint set dadta structure is to keep the equivalent elements as a set represented by the smallest member of that set. When a new label is created, it is considered to be a separate set in the bigger set. Later on in the program, when an equivalency is found between two labels, the sets representing those two labels are merged together with a union function. This will allow us to know exactly which labels are equivalent with each other. 
 
-For these two operations, I am using OpenCV's \textit{"imread"} and \textit{"imwrite"} functions. The imread function will read an image file and load it into a Mat data structure which is the image structure used in OpenCV. On the other hand, the imwrite function will get as parameter a Mat object and will serialize it to the filesystem.
+During the second pass, we find the set that each label is a member of and use the representing label in that set as the final label.
 
-I faced some difficulties using these two functions. An example of these difficulties was the incompatibilities between color spaces. The imread function reads an image in BGR color space and I was processing the image in RGB space. This forced me to convert the read images to RGB, after reading it and, convert them back to BGR before writing to the filesystem.
+Just for better visualization of the components, I use a very simple coloring technique which might fail from time to time, depending on the number of the components found and their order, but it will try to assign distinct colors to different components found in the image.
 
-\end{homeworkSection}
-
-\begin{homeworkSection}{(b) Capture image from camera} % Section within problem
-
-As an extra feature, I added the capture image functionality to the program. To do this, I get the system's default camera and open its video feedback in a different window. The user can hit the "Space" key to capture the image. After that, the captured image will be opened in the program automatically and it can be used as a normal image in the program.
-
-Again, this image capturing process had the exact same problem with the color spaces as Read/Write operations. I have applied the color space conversion in this context too.
-
-\end{homeworkSection}
-
-\end{homeworkProblem}
-
-%----------------------------------------------------------------------------------------
-%	Histogram
-%----------------------------------------------------------------------------------------
-
-\begin{homeworkProblem}[\Roman{homeworkProblemCounter}. Histogram View]
-After opening or capturing an image in the program, a new window will appear which is consisted of the histogram of the image. For simplification, I have used the red channel to create and show the histogram and this will allow us to show almost the same histograms for both an color image and the gray scale version of it. This could be done by creating four different histograms, one for each RGB channels and one for the average of the three values.
-
-To create the histogram chart, I have used GNU-Plot program installed on an UBUNTU machine. Each time the image changes, I will update its histogram and send it over to GNU-plot to create the chart. Then, I use the created histogram to update the Histogram view in the program.
+Figure \ref{fig:CCL1} shows the process of labelling the lena's image. First the image is converted to gray scale. Then, I apply some gaussian smoothing to the image and use the simple thresholding feature to convert the image to a binary image with some disjoint components. At the end, I use the CCL in the program to label the components in the resulting image from the previous steps.
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=0.5\textwidth]{histogram}
-  \caption{Screen shot of a sample histogram created in the program.}
+	\includegraphics[width=0.3\textwidth]{CCL1-1}
+	\includegraphics[width=0.3\textwidth]{CCL1-2}
+	\includegraphics[width=0.3\textwidth]{CCL1-3}
+	\includegraphics[width=0.3\textwidth]{CCL1-4}
+	\includegraphics[width=0.3\textwidth]{CCL1-5}
+  \caption{The resulting images from using the CCL algorithm on the lena's image after applying a gray-scale conversion, two gaussian filters and a simple thresholding. Different colors in the last image shows different components found. Here, we have \textbf{29} distinct components with average component area of \textbf{300.276} pixels.}
+  \label{fig:CCL1}
+\end{figure}
+
+In the next example, shown in Figure \ref{fig:CCL2}, I have tried to show that CCL can be used to find important parts of an image of a human face. The image used in this example was obtained randomly from a search for "Face Image" on Google and was in gray-scale originally. Two Guassian filters have been applied to the image and after that, the image has been converted to binary using a thresholding technique. CCL has been used on the image after inverting the image pixels. The result is very interesting because you can clearly see that the important parts of the face (her eyes, lib, nose and a not very complete boundary around the face) have been highlighted as different components.
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=0.3\textwidth]{CCL2-1}
+	\includegraphics[width=0.3\textwidth]{CCL2-2}
+	\includegraphics[width=0.3\textwidth]{CCL2-3}
+	\includegraphics[width=0.3\textwidth]{CCL2-4}
+	\includegraphics[width=0.3\textwidth]{CCL2-5}
+  \caption{Applying CCL to an image of a face. Different colors in the last image shows different components found. Here, we have \textbf{10} distinct components with average component area of \textbf{926} pixels.}
+  \label{fig:CCL2}
 \end{figure}
 
 \end{homeworkProblem}
 
 %----------------------------------------------------------------------------------------
-%	Gray Scale
+%	Invert
 %----------------------------------------------------------------------------------------
 
-\begin{homeworkProblem}[\Roman{homeworkProblemCounter}. Gray Scale Conversion]
-As we are supposed to process only gray scale images, I needed to somehow convert the read image to gray scale. I tried three different methods to convert the color image to gray scale image. After comparing the results from different techniques on multiple images, I decided to use the weighted average as the main algorithm to convert the images to gray scale in my program. The following equation is used to get the resulting gray scale pixels in the image.
+% To have just one problem per page, simply put a \clearpage after each problem
 
-\lstset {language=C++}
-\begin{lstlisting}
-int gray_scale = 0.21 * red + 0.72 * green + 0.07 * blue;
-\end{lstlisting}
+\begin{homeworkProblem}[\Roman{homeworkProblemCounter}. Invert]
 
-Also, the following image is the result from converting the original version of the Lena image to gray scale using the ColonD program.
+Inverting an image has been implemented in the program as an extra feature. It will subtract the pixel value from 255 and use the resulting value as the pixel intensity. This function is illustrated in Figure \ref{fig:invert}.
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=0.6\textwidth]{grayscale}
-  \caption{Convert lena's image to gray scale.}
+	\includegraphics[width=0.3\textwidth]{invert1}
+	\includegraphics[width=0.3\textwidth]{invert2}
+  \caption{Inverting pixel values of the lena's image.}
+  \label{fig:invert}
 \end{figure}
 
 \end{homeworkProblem}
 
 %----------------------------------------------------------------------------------------
-%	Noise
+%	Robert's operator
 %----------------------------------------------------------------------------------------
 
-\begin{homeworkProblem}[\Roman{homeworkProblemCounter}. Add Noise]
+% To have just one problem per page, simply put a \clearpage after each problem
 
-For learning purposes, we needed to add some artificially created noise to our images. In my project, using a slider control, one can add different amounts of noise to the opened image. The implementation of this feature was very simple but again, it could be done in different ways. What I am doing is, I generate a random number in \textit{P\%} of the pixels and replace the pixel value with the random value. Another way of doing this is to generate a random number and add the random value to the pixel values.
+\begin{homeworkProblem}[\Roman{homeworkProblemCounter}. Robert's Operator]
+Robert's operator is acting as an edge detector. The operator is consisting of separate applications of two different 2 x 2 filters. The idea behind this operator is to approximate the gradient of an image. The matrices used as filters are shown below.
+\[
+F1 =\begin{bmatrix}
+    +1 & 0 \\
+    0 & -1
+\end{bmatrix}
+,
+F2 =\begin{bmatrix}
+	0 & +1 \\
+	-1 & 0
+\end{bmatrix}
+\]
 
-The user can use the slider to change the amount of added noise to the picture and by clicking on the "Apply" button the noise will be added to the image. If one forgets to click on the apply button or decide not to add noise to the image, the noise will not be applied and the original image will remain intact.
+These two filters are applied to the image individually and at the end, the final result would be the summation of both images together. I will present two examples of this operator used on different images.
+
+The first application of the operator was on an image of a bike in front of a brick wall. The operator is applied without any other modifications to the image and the result is shown in Figure \ref{fig:rob1}.
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=0.75\textwidth]{noise}
-  \caption{Added some noise to the lena's picture. The slider control and the Apply button can be seen in this snapshot of the program.}
+	\includegraphics[width=0.3\textwidth]{rob1-1}
+	\includegraphics[width=0.3\textwidth]{rob1-2}
+  \caption{Applying Robert's operator to an image without any other modifications.}
+  \label{fig:rob1}
+\end{figure}
+
+Now, I am going to show the resulting image from Robert's operator to the same image but with applying a Guassian filter before the Robert's application. The results are shown in Figure \ref{fig:rob2}.
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=0.3\textwidth]{rob2-1}
+	\includegraphics[width=0.3\textwidth]{rob2-2}
+	\includegraphics[width=0.3\textwidth]{rob2-3}
+  \caption{Applying Robert's operator to an image with Guassian filter applied to it.}
+  \label{fig:rob2}
+\end{figure}
+
+As you can see, the difference between the results of the Robert's operator to an image with or without the Guassian filter is not big. Although, if you pay attention closer, the difference is in the amount of noise shown in two results. The image with Guassian filter applied to it, has much smoother surface which allows us to focus on the important information not getting confused with the noise.
+
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%	Sobel's operator
+%----------------------------------------------------------------------------------------
+
+% To have just one problem per page, simply put a \clearpage after each problem
+
+\begin{homeworkProblem}[\Roman{homeworkProblemCounter}. Sobel's Operator]
+Sobel's operator is another edge detector. The operator is consisting of separate applications of two different 3 x 3 filters. The idea behind this operator is to use two filters, one focusing on Horizontal edges and the other one focused on the Vertical edges to find all of the edges in the image. The filters used in this operator is as follows:
+\[
+GY =\begin{bmatrix}
+    -1 & -2 & -1 \\
+    0 & 0 & 0 \\
+    1 & 2 & 1 
+\end{bmatrix}
+,
+GX =\begin{bmatrix}
+    -1 & 0 & 1 \\
+    -2 & 0 & 2 \\
+    -1 & 0 & 1 
+\end{bmatrix}
+\]
+
+These two filters are applied to the image individually and at the end, the final result would be the summation of both images together. I will present two examples of this operator used on different images.
+
+The first application of the operator is on the same image used in the Robert's operator section (The bike's image). The operator is applied without any other modifications to the image and the result is shown in Figure \ref{fig:sob1}. As you can see, the edges are much brighter and stronger comparing to the edges found using Robert's operator.
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=0.3\textwidth]{sob1-1}
+	\includegraphics[width=0.3\textwidth]{sob1-2}
+  \caption{Applying Sobel's operator to an image without any other modifications.}
+  \label{fig:sob1}
+\end{figure}
+
+The second example of the Sobel's operator will be on the face image used in the previous sections. This is to illustrate how an edge detection algorithm will perform on an image which contains a face in it. The results can be seen in Figure \ref{fig:sob2}. The face image is first smoothed with an application of a Guassian filter. The result of this operator clearly shows that the important areas of the image are again highlighted and the main purpose of edge detection algorithms are to find and highlight important parts of the images which are the boundaries between different colors in the image.
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=0.3\textwidth]{sob2-1}
+	\includegraphics[width=0.3\textwidth]{sob2-2}
+	\includegraphics[width=0.3\textwidth]{sob2-3}
+  \caption{Applying Sobel's operator to a face image with Guassian filter applied to it.}
+  \label{fig:sob2}
 \end{figure}
 
 \end{homeworkProblem}
 
 %----------------------------------------------------------------------------------------
-%	Smoothing
+%	Prewitt's operator
 %----------------------------------------------------------------------------------------
 
-\begin{homeworkProblem}[\Roman{homeworkProblemCounter}. Smoothing The Image]
+% To have just one problem per page, simply put a \clearpage after each problem
 
-For smoothing an image, we can use two different techniques in this program. These two techniques will be explained in detail in the following sub-sections.
+\begin{homeworkProblem}[\Roman{homeworkProblemCounter}. Prewitt's Operator]
+Prewitt's operator is again another edge detector operator like the previous two operators. The operator is consisting of separate applications of two different 3 x 3 filters. The idea behind this operator is very similar to the idea used in Sobel's operator which uses two filters, one focusing on Horizontal edges and the other one focused on the Vertical edges to find all of the edges in the image. The filters used in this operator is as follows:
+\[
+GY =\begin{bmatrix}
+    -1 & -1 & -1 \\
+    0 & 0 & 0 \\
+    1 & 1 & 1 
+\end{bmatrix}
+,
+GX =\begin{bmatrix}
+    -1 & 0 & 1 \\
+    -1 & 0 & 1 \\
+    -1 & 0 & 1 
+\end{bmatrix}
+\]
 
-
-\begin{homeworkSection}{(a) Average Filter} % Section within problem
-
-This technique is nothing but using a simple filter over the image. The matrix which represents the filter have equal values as for each one its elements and this value is equal to $\frac{1}{Width ^ 2}$.
-
-The user can use the provided textfields to determine the width of the filter. The following figure will depict how the Average Filtering algorithm will work on an image.
-
-\begin{figure}[h!]
-  \centering
-    \includegraphics[width=0.3\textwidth]{average}
-  \caption{Used an Average Filter with Width = 10 on lena's image.}
-\end{figure}
-
-This algorithm will leave out a few pixels from each side of the image and will not fill them with any other values hence the black frame around the image is formed.
-
-\end{homeworkSection}
-
-\begin{homeworkSection}{(b) Median Filter} % Section within problem
-
-This filter will find the pixel values in corresponding to the filter elements, sort them and use the middle value (the median) to represent all other pixels. Then we replace the pixel corresponding to the filter's middle element.
-
-I realized that this smoothing technique will work very well on noisy images I created using the Add Noise feature. The following figure will compare both the noisy and the smoothed image together. As you can see, the resulting smoothed image has a huge improved \textbf{visual quality}  comparing to the noisy image.
+These two filters are applied to the image individually and at the end, the final result would be the summation of both images together. Figure \ref{fig:prew1} depicts how this operator performs on the image of the bike used in previous sections. The result is very similar to the result of the Sobel's operator, but it can argued that the result of the Prewitt's operator is less biased towards the pixels in the middle of the filter.
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=0.6\textwidth]{median}
-  \caption{Applying the Median filter to a noisy image of lena.}
-\end{figure}
-
-The width of the Median Filter can also be changed in the program. The interesting observation about this filter is that I used a Median Filter of width 3. If I use wider filters, the image will start to look like vector images and it starts to flatten out.
-
-\begin{figure}[h!]
-  \centering
-    \includegraphics[width=0.3\textwidth]{big_median}
-  \caption{Applying a 10x10 Median filter to the original image of lena.}
-\end{figure}
-
-\end{homeworkSection}
-
-\end{homeworkProblem}
-
-%----------------------------------------------------------------------------------------
-%	Contrast Enhacement
-%----------------------------------------------------------------------------------------
-
-\begin{homeworkProblem}[\Roman{homeworkProblemCounter}. Contrast Enhancement]
-
-As discussed in the class, the contrast of an image can be improved to a degree by stretching out the histogram to cover the whole space. To do this, first we need to find the dominant peak or peaks of the image. After finding the peak, we need to determine the valleys around the peak(s). The location of these valleys (we will have two valleys in this case, one on each side of the peak) can be used as stretching points of the histogram.
-
-I have previously implemented a peak recognition system in a different context. In that method, first, I use a simple threshold (which can be determined using different statistical measures) to separate peak values from values located in valleys. After this step, I use Student T-test which is again another statistical test to figure out which peak is worth keeping and which peak is not. Also, using the resulting p-values from the T-test, I will decide whether I need to combine to consecutive peaks or treat them as separate peaks. This method has been implemented and is going to be published as an application note. But here, in our application, I just let the user to decide which two values he is going to use as the boundaries of the stretching process.
-
-\begin{figure}[h!]
-  \centering
-    \includegraphics[width=0.6\textwidth]{enhance}
-  \caption{This figure shows an image before and after the contrast enhancement process. The image on the left is the original image. The right image is the enhanced version.}
+	\includegraphics[width=0.3\textwidth]{prew1}
+	\includegraphics[width=0.3\textwidth]{prew2}
+  \caption{Applying Prewitt's operator to an image without any other modifications.}
+  \label{fig:prew1}
 \end{figure}
 
 \end{homeworkProblem}
 
 %----------------------------------------------------------------------------------------
-%	Thresholding
+%	Kirsch's operator
 %----------------------------------------------------------------------------------------
 
-\begin{homeworkProblem}[\Roman{homeworkProblemCounter}. Binarization an image]
-As many other image processing techniques which don't have a unique way of doing, binarization of an image can also be done in many ways. Methods implemented in this project are,
+% To have just one problem per page, simply put a \clearpage after each problem
 
-\begin{enumerate} \itemsep1pt \parskip0pt \parsep0pt
-  \item Simple Thresholding
-  \item P-tile Thresholding
-  \item Iterative Thresholding
-  \item Adaptive Thresholding
-  \item Slicing an image and do Thresholding
-\end{enumerate}
+\begin{homeworkProblem}[\Roman{homeworkProblemCounter}. Kirsch's Operator]
+Kirsch's operator is another edge detector operator but it acts a little bit differently than the others. The operator is consisting of separate applications of four different 3 x 3 filters. Two of the filters are biased towards the Horizontal and Vertical edges and the other two are simply a 45 degree rotation of these filters. The filters are as follow:
+\[
+F1 =\begin{bmatrix}
+    1 & 1 & 1 \\
+    0 & 0 & 0 \\
+    -1 & -1 & -1 
+\end{bmatrix}
+,
+F2 =\begin{bmatrix}
+    -1 & 0 & 1 \\
+    -1 & 0 & 1 \\
+    -1 & 0 & 1 
+\end{bmatrix}
+,
+F3 =\begin{bmatrix}
+    0 & 1 & 1 \\
+    -1 & 0 & 1 \\
+    -1 & -1 & 0 
+\end{bmatrix}
+,
+F4 =\begin{bmatrix}
+    1 & 1 & 0 \\
+    1 & 0 & -1 \\
+    0 & -1 & -1 
+\end{bmatrix}
+\]
 
-In the following sub-sections I will present the results from running these techniques on different images and will briefly discuss each one of them.
-
-\begin{homeworkSection}{(a) Simple Thresholding} % Section within problem
-
-A simple threshold will be used in this technique and simply turns all of the pixels below that threshold to black and the others to white. An example of this technique can be seen in the following figure,
-
-\begin{figure}[h!]
-  \centering
-    \includegraphics[width=0.4\textwidth]{simple1}
-    \includegraphics[width=0.4\textwidth]{simple2}
-  \caption{Applying a simple threshold to an image.}
-\end{figure}
-
-The user can define the threshold he wants to use using a slide control which starts from 0 and ends at 255.
-
-\end{homeworkSection}
-
-\begin{homeworkSection}{(b) P-Tile Thresholding} % Section within problem
-
-In this method, we get the \textit{P} value and use it to find the \textit{Pth} percentile of the pixels. This percentile value can be used as an threshold value to convert the image to binary. An example of this method can be used which is done with \textit{P = 20}.
-
-\begin{figure}[h!]
-  \centering
-    \includegraphics[width=0.6\textwidth]{p_tile}
-  \caption{Applying a P-tile function with \textit{P = 20}.}
-\end{figure}
-
-\end{homeworkSection}
-
-\begin{homeworkSection}{(c) Iterative Thresholding} % Section within problem
-
-This is just the implementation of the Iterative method discussed in the class. It doesn't need any input parameters and I am using 128 as the initial threshold value. The resulting image after applying this function on lena's image is depicted in the following figure.
+These filters are applied to the image individually and at the end, to combine the results, I find the maximum for each pixel among four pixels of the images and use that value to represent the final pixel value. Beside combining the resulting images from the four filters, I give the user the option to save all separate and the combined images to the file system. Figure \ref{fig:kirs1} depicts how this operator performs on the image of the bike used in previous sections by showing all four separate images and the combined result at the end. You can obviously see specially in the first two filtered images that the filter are working in favor of the Horizintal and Vertical edges, respectively. The other two filtered images are showing the results for the rotated filters and the last image shows the combined image using the max operator.
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=0.3\textwidth]{iterative}
-  \caption{Result of Iterative Thresholding on lena's image.}
+	\includegraphics[width=0.3\textwidth]{kirs1-1}
+	\includegraphics[width=0.3\textwidth]{kirs1-2}
+	\includegraphics[width=0.3\textwidth]{kirs1-3}
+	\includegraphics[width=0.3\textwidth]{kirs1-4}
+	\includegraphics[width=0.3\textwidth]{kirs1-5}
+	\includegraphics[width=0.3\textwidth]{kirs1-6}
+  \caption{Applying Kirsch's operator to an image without any other modifications.}
+  \label{fig:kirs1}
 \end{figure}
 
-\end{homeworkSection}
-
-\begin{homeworkSection}{(d) Adaptive Thresholding} % Section within problem
-
-Adaptive thresholding will cut the image into N * N smaller images and will apply an arbitrary thresholding techniques on each one these smaller images individually. In my program, I get the number of images in each dimension, cut the image into smaller ones and apply an Iterative thresholding technique on each one of them and stitch them back together at the end. The resulting image from the lena's picture can be seen in the following figure in which I will cut the image into 10 smaller images on each dimension which will give us 100 separate images.
+Figure \ref{fig:kirs2} shows the usage of the Kirsch's operator on Lena's image. Again, all 4 separate and the combined images are shown in this figure. If one pay attention to the third and the fourth images, he can clearly see that these images are the results from the rotated filters because the edges with 45 degree headings are highlighted much stronger than other edges.
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=0.3\textwidth]{adaptive}
-  \caption{Result of Adaptive Thresholding on lena's image with 10 images on each dimension.}
+	\includegraphics[width=0.3\textwidth]{kirs2-1}
+	\includegraphics[width=0.3\textwidth]{kirs2-2}
+	\includegraphics[width=0.3\textwidth]{kirs2-3}
+	\includegraphics[width=0.3\textwidth]{kirs2-4}
+	\includegraphics[width=0.3\textwidth]{kirs2-5}
+	\includegraphics[width=0.3\textwidth]{kirs2-6}
+  \caption{Applying Kirsch's operator to Lena's image without any other modifications.}
+  \label{fig:kirs2}
 \end{figure}
 
-\end{homeworkSection}
+\end{homeworkProblem}
 
-\begin{homeworkSection}{(e) Image Slicing} % Section within problem
+%----------------------------------------------------------------------------------------
+%	Laplacian operator
+%----------------------------------------------------------------------------------------
 
-This technique can also be done in many different ways. In this project, I decided to slice the histogram into \textbf{N} equal areas. For each one of these areas, the values located inside of the area will be shown white and the rest of the pixels will be shown black.
+% To have just one problem per page, simply put a \clearpage after each problem
 
-After calculating the results, a new window will appear, showing the resulting images as an animation which plays twice. Also, the program will ask for a location to save all the results in case you want to review the results individually.
+\begin{homeworkProblem}[\Roman{homeworkProblemCounter}. Laplacian Operator]
+In this section, I have implemented the Laplacian operator on discrete images. This operator creates a new matrix out of an image which can be shown as an image but it might be meaningless because we are mapping the resulting matrix to the visible area with pixel of maximum value of 255. Laplacian operation can be done using different filters but the operator used in ColonD Image Processing program is as follows:
+\[
+F1 =\begin{bmatrix}
+    0 & 1 & 0 \\
+    1 & -4 & 1 \\
+    0 & 1 & 0 
+\end{bmatrix}
+\]
 
-The following figure shows a image sliced into five different binary images.
+At the rest of this section, I will provide some examples of the Laplacian operator applied to different images. Figures \ref{fig:lap1}, \ref{fig:lap2} and \ref{fig:lap3} are depicting these examples.
 
 \begin{figure}[h!]
   \centering
-    \includegraphics[width=0.3\textwidth]{slice1}
-    \includegraphics[width=0.3\textwidth]{slice2}
-    \includegraphics[width=0.3\textwidth]{slice3}
-    \includegraphics[width=0.3\textwidth]{slice4}
-    \includegraphics[width=0.3\textwidth]{slice5}
-  \caption{Lena's image sliced into 5 different binary images. The histogram is sliced from left to right in which the top-left image will corresponds to the left most slice of the histogram.}
+	\includegraphics[width=0.3\textwidth]{lap1-1}
+	\includegraphics[width=0.3\textwidth]{lap1-2}
+	\includegraphics[width=0.3\textwidth]{lap1-3}
+  \caption{Applying Guassian filter and Laplacian filter to the Bike's image.}
+  \label{fig:lap1}
 \end{figure}
 
-\end{homeworkSection}
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=0.3\textwidth]{lap2-1}
+	\includegraphics[width=0.3\textwidth]{lap2-2}
+	\includegraphics[width=0.3\textwidth]{lap2-3}
+  \caption{Applying Gray-scale conversion and Laplacian filter to the Lena's image.}
+  \label{fig:lap2}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=0.3\textwidth]{lap3-1}
+	\includegraphics[width=0.3\textwidth]{lap3-2}
+	\includegraphics[width=0.3\textwidth]{lap3-3}
+	\includegraphics[width=0.3\textwidth]{lap3-4}
+    \caption{Applying Gray-scale conversion, Guassian filter and Laplacian filter to the Lena's image. Applying just one step of the Guassian filter has a drastic effect on the result of the Laplacian operator. The highlighted areas get faded and less strong.}
+  \label{fig:lap3}
+\end{figure}
+
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%	Guassian operator
+%----------------------------------------------------------------------------------------
+
+% To have just one problem per page, simply put a \clearpage after each problem
+
+\begin{homeworkProblem}[\Roman{homeworkProblemCounter}. Guassian Filter]
+This is another Smoothing (low-pass) filter which is implemented in this program as an extra feature. Some examples of this filter applied once, twice and three times to one image is depicted in Figure \ref{fig:guas}.
+
+\begin{figure}[h!]
+  \centering
+	\includegraphics[width=0.3\textwidth]{guas1}
+	\includegraphics[width=0.3\textwidth]{guas2}
+	\includegraphics[width=0.3\textwidth]{guas3}
+	\includegraphics[width=0.3\textwidth]{guas4}
+  \caption{Applying Guassian filter once, twice and three time to the Lena's image.}
+  \label{fig:guas}
+\end{figure}
 
 \end{homeworkProblem}
 
@@ -418,9 +499,10 @@ The following figure shows a image sliced into five different binary images.
 %	Conclusion
 %----------------------------------------------------------------------------------------
 
-\begin{homeworkProblem}[\Roman{homeworkProblemCounter}. Conclusion]
-As you may have figured out, Image Processing operations can be done in many different ways with many different parameters. Deciding on which technique to use and what parameters to use depends heavily on the application domain you are working in.
+% To have just one problem per page, simply put a \clearpage after each problem
 
+\begin{homeworkProblem}[\Roman{homeworkProblemCounter}. Conclusion]
+In this phase of the project, I implemented many high-pass filters which try to flatten out parts which have no significant changes in the pixel values but emphasize parts with rapid change in the pixel values.
 
 \end{homeworkProblem}
 

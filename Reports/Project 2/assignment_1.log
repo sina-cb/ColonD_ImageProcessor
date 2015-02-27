@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2015.2.8)  27 FEB 2015 01:40
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2015.2.8)  27 FEB 2015 04:22
 entering extended mode
  %&-line parsing enabled.
 **assignment_1.tex
@@ -182,37 +182,59 @@ Package: lipsum 2005/01/26 v1.0 150 paragraphs of Lorem Ipsum dummy text
 File: lipsum.dtx 2005/01/26 v1.0 150 paragraphs of Lorem Ipsum dummy text
 \c@lips@count=\count112
 )
-\c@homeworkProblemCounter=\count113
+(/usr/share/texmf-texlive/tex/latex/caption/caption.sty
+Package: caption 2009/10/09 v3.1k Customizing captions (AR)
+
+(/usr/share/texmf-texlive/tex/latex/caption/caption3.sty
+Package: caption3 2009/10/09 v3.1k caption3 kernel (AR)
+\captionmargin=\dimen121
+\captionmargin@=\dimen122
+\captionwidth=\dimen123
+\caption@indent=\dimen124
+\caption@parindent=\dimen125
+\caption@hangindent=\dimen126
+)
+\c@ContinuedFloat=\count113
+Package caption Info: listings package is loaded.
+)
+(/usr/share/texmf-texlive/tex/latex/caption/subcaption.sty
+Package: subcaption 2008/08/31 v1.0b Adding subcaptions (AR)
+\c@subfigure=\count114
+\c@subtable=\count115
+)
+\c@homeworkProblemCounter=\count116
  (./assignment_1.aux)
 \openout1 = `assignment_1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-\c@lstlisting=\count114
-
-(/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+\c@lstlisting=\count117
+ (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count115
-\scratchdimen=\dimen121
+\scratchcounter=\count118
+\scratchdimen=\dimen127
 \scratchbox=\box30
-\nofMPsegments=\count116
-\nofMParguments=\count117
+\nofMPsegments=\count119
+\nofMParguments=\count120
 \everyMPshowfont=\toks22
-\MPscratchCnt=\count118
-\MPscratchDim=\dimen122
-\MPnumerator=\count119
+\MPscratchCnt=\count121
+\MPscratchDim=\dimen128
+\MPnumerator=\count122
 \everyMPtoPDFconversion=\toks23
-) [1
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+ [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./assignment_1.toc)
 \tf@toc=\write3
@@ -228,285 +250,220 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 155.
  [3]
-
-! LaTeX Error: File `histogram' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.214 ...egraphics[width=0.5\textwidth]{histogram}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-(/usr/share/texmf-texlive/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2004/09/05 1.3 listings language file
-)
-(/usr/share/texmf-texlive/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2004/09/05 1.3 listings language file
-)
-(/usr/share/texmf-texlive/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
-)
-
-! LaTeX Error: File `grayscale' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.236 ...egraphics[width=0.6\textwidth]{grayscale}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `noise' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.254 ...ludegraphics[width=0.75\textwidth]{noise}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
+<CCL1-1.jpg, id=17, 256.96pt x 256.96pt>
+File: CCL1-1.jpg Graphic file (type jpg)
+ <use CCL1-1.jpg>
+<CCL1-2.jpg, id=18, 256.96pt x 256.96pt>
+File: CCL1-2.jpg Graphic file (type jpg)
+ <use CCL1-2.jpg>
+<CCL1-3.jpg, id=19, 256.96pt x 256.96pt>
+File: CCL1-3.jpg Graphic file (type jpg)
+ <use CCL1-3.jpg>
+<CCL1-4.jpg, id=20, 256.96pt x 256.96pt>
+File: CCL1-4.jpg Graphic file (type jpg)
+ <use CCL1-4.jpg>
+<CCL1-5.jpg, id=21, 256.96pt x 256.96pt>
+File: CCL1-5.jpg Graphic file (type jpg)
+ <use CCL1-5.jpg>
+<CCL2-1.jpg, id=22, 321.2pt x 200.75pt>
+File: CCL2-1.jpg Graphic file (type jpg)
+ <use CCL2-1.jpg>
+<CCL2-2.jpg, id=23, 321.2pt x 200.75pt>
+File: CCL2-2.jpg Graphic file (type jpg)
+ <use CCL2-2.jpg>
+<CCL2-3.jpg, id=24, 321.2pt x 200.75pt>
+File: CCL2-3.jpg Graphic file (type jpg)
+ <use CCL2-3.jpg>
+<CCL2-4.jpg, id=25, 321.2pt x 200.75pt>
+File: CCL2-4.jpg Graphic file (type jpg)
+ <use CCL2-4.jpg>
+<CCL2-5.jpg, id=26, 321.2pt x 200.75pt>
+File: CCL2-5.jpg Graphic file (type jpg)
+ <use CCL2-5.jpg>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[4]
+<invert1.jpg, id=27, 513.92pt x 513.92pt>
+File: invert1.jpg Graphic file (type jpg)
+ <use invert1.jpg>
+<invert2.jpg, id=28, 513.92pt x 513.92pt>
+File: invert2.jpg Graphic file (type jpg)
+ <use invert2.jpg>
 
-! LaTeX Error: File `average' not found.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.277 ...udegraphics[width=0.3\textwidth]{average}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+[4 <./CCL1-1.jpg> <./CCL1-2.jpg> <./CCL1-3.jpg> <./CCL1-4.jpg> <./CCL1-5.jpg>]
+<rob1-1.jpg, id=34, 642.4pt x 481.8pt>
+File: rob1-1.jpg Graphic file (type jpg)
+ <use rob1-1.jpg>
+<rob1-2.jpg, id=35, 642.4pt x 481.8pt>
+File: rob1-2.jpg Graphic file (type jpg)
+ <use rob1-2.jpg>
+<rob2-1.jpg, id=36, 642.4pt x 481.8pt>
+File: rob2-1.jpg Graphic file (type jpg)
+ <use rob2-1.jpg>
+<rob2-2.jpg, id=37, 642.4pt x 481.8pt>
+File: rob2-2.jpg Graphic file (type jpg)
+ <use rob2-2.jpg>
+<rob2-3.jpg, id=38, 642.4pt x 481.8pt>
+File: rob2-3.jpg Graphic file (type jpg)
+ <use rob2-3.jpg>
 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-! LaTeX Error: File `median' not found.
+[5 <./CCL2-1.jpg> <./CCL2-2.jpg> <./CCL2-3.jpg> <./CCL2-4.jpg> <./CCL2-5.jpg> <
+./invert1.jpg> <./invert2.jpg> <./rob1-1.jpg> <./rob1-2.jpg>]
+<sob1-1.jpg, id=42, 642.4pt x 481.8pt>
+File: sob1-1.jpg Graphic file (type jpg)
+ <use sob1-1.jpg>
+<sob1-2.jpg, id=43, 642.4pt x 481.8pt>
+File: sob1-2.jpg Graphic file (type jpg)
+ <use sob1-2.jpg>
+<sob2-1.jpg, id=44, 321.2pt x 200.75pt>
+File: sob2-1.jpg Graphic file (type jpg)
+ <use sob2-1.jpg>
+<sob2-2.jpg, id=45, 321.2pt x 200.75pt>
+File: sob2-2.jpg Graphic file (type jpg)
+ <use sob2-2.jpg>
+<sob2-3.jpg, id=46, 321.2pt x 200.75pt>
+File: sob2-3.jpg Graphic file (type jpg)
+ <use sob2-3.jpg>
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.293 ...ludegraphics[width=0.6\textwidth]{median}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+[6 <./rob2-1.jpg> <./rob2-2.jpg> <./rob2-3.jpg> <./sob1-1.jpg> <./sob1-2.jpg>]
+<prew1.jpg, id=50, 642.4pt x 481.8pt>
+File: prew1.jpg Graphic file (type jpg)
+ <use prew1.jpg>
+<prew2.jpg, id=51, 642.4pt x 481.8pt>
+File: prew2.jpg Graphic file (type jpg)
+ <use prew2.jpg> [7 <./sob2-1.jpg> <./sob2-2.jpg> <./sob2-3.jpg> <./prew1.jpg> 
+<./prew2.jpg>]
+<kirs1-1.jpg, id=56, 642.4pt x 481.8pt>
+File: kirs1-1.jpg Graphic file (type jpg)
+ <use kirs1-1.jpg>
+<kirs1-2.jpg, id=57, 642.4pt x 481.8pt>
+File: kirs1-2.jpg Graphic file (type jpg)
+ <use kirs1-2.jpg>
+<kirs1-3.jpg, id=58, 642.4pt x 481.8pt>
+File: kirs1-3.jpg Graphic file (type jpg)
+ <use kirs1-3.jpg>
+<kirs1-4.jpg, id=59, 642.4pt x 481.8pt>
+File: kirs1-4.jpg Graphic file (type jpg)
+ <use kirs1-4.jpg>
+<kirs1-5.jpg, id=60, 642.4pt x 481.8pt>
+File: kirs1-5.jpg Graphic file (type jpg)
+ <use kirs1-5.jpg>
+<kirs1-6.jpg, id=61, 642.4pt x 481.8pt>
+File: kirs1-6.jpg Graphic file (type jpg)
+ <use kirs1-6.jpg>
+<kirs2-1.jpg, id=62, 513.92pt x 513.92pt>
+File: kirs2-1.jpg Graphic file (type jpg)
+ <use kirs2-1.jpg>
+<kirs2-2.jpg, id=63, 513.92pt x 513.92pt>
+File: kirs2-2.jpg Graphic file (type jpg)
+ <use kirs2-2.jpg>
+<kirs2-3.jpg, id=64, 513.92pt x 513.92pt>
+File: kirs2-3.jpg Graphic file (type jpg)
+ <use kirs2-3.jpg>
+<kirs2-4.jpg, id=65, 513.92pt x 513.92pt>
+File: kirs2-4.jpg Graphic file (type jpg)
+ <use kirs2-4.jpg>
+<kirs2-5.jpg, id=66, 513.92pt x 513.92pt>
+File: kirs2-5.jpg Graphic file (type jpg)
+ <use kirs2-5.jpg>
+<kirs2-6.jpg, id=67, 513.92pt x 513.92pt>
+File: kirs2-6.jpg Graphic file (type jpg)
+ <use kirs2-6.jpg>
 
-! LaTeX Error: File `big_median' not found.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.301 ...graphics[width=0.3\textwidth]{big_median}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+<lap1-1.jpg, id=68, 642.4pt x 481.8pt>
+File: lap1-1.jpg Graphic file (type jpg)
+ <use lap1-1.jpg>
+<lap1-2.jpg, id=69, 642.4pt x 481.8pt>
+File: lap1-2.jpg Graphic file (type jpg)
+ <use lap1-2.jpg>
+<lap1-3.jpg, id=70, 642.4pt x 481.8pt>
+File: lap1-3.jpg Graphic file (type jpg)
+ <use lap1-3.jpg>
 
-[5]
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-! LaTeX Error: File `enhance' not found.
+<lap2-1.jpg, id=71, 513.92pt x 513.92pt>
+File: lap2-1.jpg Graphic file (type jpg)
+ <use lap2-1.jpg>
+<lap2-2.jpg, id=72, 513.92pt x 513.92pt>
+File: lap2-2.jpg Graphic file (type jpg)
+ <use lap2-2.jpg>
+<lap2-3.jpg, id=73, 513.92pt x 513.92pt>
+File: lap2-3.jpg Graphic file (type jpg)
+ <use lap2-3.jpg>
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.321 ...udegraphics[width=0.6\textwidth]{enhance}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+<lap3-1.jpg, id=74, 513.92pt x 513.92pt>
+File: lap3-1.jpg Graphic file (type jpg)
+ <use lap3-1.jpg>
+<lap3-2.jpg, id=75, 513.92pt x 513.92pt>
+File: lap3-2.jpg Graphic file (type jpg)
+ <use lap3-2.jpg>
+<lap3-3.jpg, id=76, 513.92pt x 513.92pt>
+File: lap3-3.jpg Graphic file (type jpg)
+ <use lap3-3.jpg>
+<lap3-4.jpg, id=77, 513.92pt x 513.92pt>
+File: lap3-4.jpg Graphic file (type jpg)
+ <use lap3-4.jpg>
 
-! LaTeX Error: File `simple1' not found.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.350 ...udegraphics[width=0.4\textwidth]{simple1}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+<guas1.jpg, id=78, 256.96pt x 256.96pt>
+File: guas1.jpg Graphic file (type jpg)
+ <use guas1.jpg>
+<guas2.jpg, id=79, 256.96pt x 256.96pt>
+File: guas2.jpg Graphic file (type jpg)
+ <use guas2.jpg>
+<guas3.jpg, id=80, 256.96pt x 256.96pt>
+File: guas3.jpg Graphic file (type jpg)
+ <use guas3.jpg>
+<guas4.jpg, id=81, 256.96pt x 256.96pt>
+File: guas4.jpg Graphic file (type jpg)
+ <use guas4.jpg>
 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-! LaTeX Error: File `simple2' not found.
+AED: lastpage setting LastPage [8 <./kirs1-1.jpg> <./kirs1-2.jpg> <./kirs1-3.jp
+g> <./kirs1-4.jpg> <./kirs1-5.jpg> <./kirs1-6.jpg>]
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.351 ...udegraphics[width=0.4\textwidth]{simple2}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+LaTeX Warning: Text page 9 contains only floats.
 
-
-! LaTeX Error: File `p_tile' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.365 ...ludegraphics[width=0.6\textwidth]{p_tile}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `iterative' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.377 ...egraphics[width=0.3\textwidth]{iterative}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-[6]
-
-! LaTeX Error: File `adaptive' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.389 ...degraphics[width=0.3\textwidth]{adaptive}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `slice1' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.405 ...ludegraphics[width=0.3\textwidth]{slice1}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `slice2' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.406 ...ludegraphics[width=0.3\textwidth]{slice2}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `slice3' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.407 ...ludegraphics[width=0.3\textwidth]{slice3}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `slice4' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.408 ...ludegraphics[width=0.3\textwidth]{slice4}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: File `slice5' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.409 ...ludegraphics[width=0.3\textwidth]{slice5}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-AED: lastpage setting LastPage [7] (./assignment_1.aux)
+[9 <./kirs2-1.jpg> <./kirs2-2.jpg> <./kirs2-3.jpg> <./kirs2-4.jpg> <./kirs2-5.j
+pg> <./kirs2-6.jpg> <./lap1-1.jpg> <./lap1-2.jpg> <./lap1-3.jpg> <./lap2-1.jpg>
+ <./lap2-2.jpg> <./lap2-3.jpg>] [10 <./lap3-1.jpg> <./lap3-2.jpg> <./lap3-3.jpg
+> <./lap3-4.jpg>] [11 <./guas1.jpg> <./guas2.jpg> <./guas3.jpg> <./guas4.jpg>]
+(./assignment_1.aux)
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 3708 strings out of 493848
- 49840 string characters out of 1152824
- 226423 words of memory out of 3000000
- 6930 multiletter control sequences out of 15000+50000
- 11040 words of font info for 39 fonts, out of 3000000 for 9000
+ 4736 strings out of 493848
+ 68167 string characters out of 1152824
+ 228041 words of memory out of 3000000
+ 7937 multiletter control sequences out of 15000+50000
+ 9976 words of font info for 36 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 33i,10n,58p,781b,1061s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,11n,43p,877b,328s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
 re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-te
-xlive/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texmf-texlive/fon
-ts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/pub
-lic/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
-/cm/cmr5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb>
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/t
-exmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texliv
-e/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/typ
-e1/public/amsfonts/cm/cmti12.pfb>
-Output written on assignment_1.pdf (7 pages, 152303 bytes).
+xlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts
+/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/publ
+ic/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/
+cm/cmr9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on assignment_1.pdf (11 pages, 7153399 bytes).
 PDF statistics:
- 70 PDF objects out of 1000 (max. 8388607)
+ 120 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 251 words of extra memory for PDF output out of 10000 (max. 10000000)
 

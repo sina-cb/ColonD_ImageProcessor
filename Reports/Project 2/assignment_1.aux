@@ -1,32 +1,41 @@
 \relax 
-\@writefile{toc}{\contentsline {section}{I. Introduction to \textit  {"ColonD Image Processing"}}{3}}
-\@writefile{toc}{\contentsline {section}{II. Basic operations}{3}}
-\@writefile{toc}{\contentsline {subsection}{(a) Read/Write operations}{3}}
-\@writefile{toc}{\contentsline {subsection}{(b) Capture image from camera}{4}}
-\@writefile{toc}{\contentsline {section}{III. Histogram View}{4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Screen shot of a sample histogram created in the program.}}{4}}
-\@writefile{toc}{\contentsline {section}{IV. Gray Scale Conversion}{4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Convert lena's image to gray scale.}}{4}}
-\@writefile{toc}{\contentsline {section}{V. Add Noise}{4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Added some noise to the lena's picture. The slider control and the Apply button can be seen in this snapshot of the program.}}{5}}
-\@writefile{toc}{\contentsline {section}{VI. Smoothing The Image}{5}}
-\@writefile{toc}{\contentsline {subsection}{(a) Average Filter}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Used an Average Filter with Width = 10 on lena's image.}}{5}}
-\@writefile{toc}{\contentsline {subsection}{(b) Median Filter}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Applying the Median filter to a noisy image of lena.}}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Applying a 10x10 Median filter to the original image of lena.}}{5}}
-\@writefile{toc}{\contentsline {section}{VII. Contrast Enhancement}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces This figure shows an image before and after the contrast enhancement process. The image on the left is the original image. The right image is the enhanced version.}}{6}}
-\@writefile{toc}{\contentsline {section}{VIII. Binarization an image}{6}}
-\@writefile{toc}{\contentsline {subsection}{(a) Simple Thresholding}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Applying a simple threshold to an image.}}{6}}
-\@writefile{toc}{\contentsline {subsection}{(b) P-Tile Thresholding}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Applying a P-tile function with \textit  {P = 20}.}}{6}}
-\@writefile{toc}{\contentsline {subsection}{(c) Iterative Thresholding}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Result of Iterative Thresholding on lena's image.}}{6}}
-\@writefile{toc}{\contentsline {subsection}{(d) Adaptive Thresholding}{7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Result of Adaptive Thresholding on lena's image with 10 images on each dimension.}}{7}}
-\@writefile{toc}{\contentsline {subsection}{(e) Image Slicing}{7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Lena's image sliced into 5 different binary images. The histogram is sliced from left to right in which the top-left image will corresponds to the left most slice of the histogram.}}{7}}
-\@writefile{toc}{\contentsline {section}{IX. Conclusion}{7}}
-\newlabel{LastPage}{{}{7}}
+\@writefile{toc}{\contentsline {section}{I. Introduction}{3}}
+\@writefile{toc}{\contentsline {section}{II. Connected Component Labelling}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces The resulting images from using the CCL algorithm on the lena's image after applying a gray-scale conversion, two gaussian filters and a simple thresholding. Different colors in the last image shows different components found. Here, we have \textbf  {29} distinct components with average component area of \textbf  {300.276} pixels.\relax }}{4}}
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:CCL1}{{1}{4}}
+\@writefile{toc}{\contentsline {section}{III. Invert}{4}}
+\@writefile{toc}{\contentsline {section}{IV. Robert's Operator}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Applying CCL to an image of a face. Different colors in the last image shows different components found. Here, we have \textbf  {10} distinct components with average component area of \textbf  {926} pixels.\relax }}{5}}
+\newlabel{fig:CCL2}{{2}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Inverting pixel values of the lena's image.\relax }}{5}}
+\newlabel{fig:invert}{{3}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Applying Robert's operator to an image without any other modifications.\relax }}{5}}
+\newlabel{fig:rob1}{{4}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Applying Robert's operator to an image with Guassian filter applied to it.\relax }}{6}}
+\newlabel{fig:rob2}{{5}{6}}
+\@writefile{toc}{\contentsline {section}{V. Sobel's Operator}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Applying Sobel's operator to an image without any other modifications.\relax }}{6}}
+\newlabel{fig:sob1}{{6}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Applying Sobel's operator to a face image with Guassian filter applied to it.\relax }}{7}}
+\newlabel{fig:sob2}{{7}{7}}
+\@writefile{toc}{\contentsline {section}{VI. Prewitt's Operator}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Applying Prewitt's operator to an image without any other modifications.\relax }}{7}}
+\newlabel{fig:prew1}{{8}{7}}
+\@writefile{toc}{\contentsline {section}{VII. Kirsch's Operator}{7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Applying Kirsch's operator to an image without any other modifications.\relax }}{8}}
+\newlabel{fig:kirs1}{{9}{8}}
+\@writefile{toc}{\contentsline {section}{VIII. Laplacian Operator}{8}}
+\@writefile{toc}{\contentsline {section}{IX. Guassian Filter}{8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Applying Kirsch's operator to Lena's image without any other modifications.\relax }}{9}}
+\newlabel{fig:kirs2}{{10}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Applying Guassian filter and Laplacian filter to the Bike's image.\relax }}{9}}
+\newlabel{fig:lap1}{{11}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Applying Gray-scale conversion and Laplacian filter to the Lena's image.\relax }}{9}}
+\newlabel{fig:lap2}{{12}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Applying Gray-scale conversion, Guassian filter and Laplacian filter to the Lena's image. Applying just one step of the Guassian filter has a drastic effect on the result of the Laplacian operator. The highlighted areas get faded and less strong.\relax }}{10}}
+\newlabel{fig:lap3}{{13}{10}}
+\@writefile{toc}{\contentsline {section}{X. Conclusion}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Applying Guassian filter once, twice and three time to the Lena's image.\relax }}{11}}
+\newlabel{fig:guas}{{14}{11}}
+\newlabel{LastPage}{{}{11}}
