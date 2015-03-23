@@ -165,6 +165,70 @@ Mat Processor::laplacian(Mat &img){
     Mat kernel(Size(filter_width, filter_width), CV_32F, elements);
     filter2D(img, res, ddepth, kernel, anchor, delta, BORDER_DEFAULT);
 
+    int filterWidth = 3;
+
+//    double **filter;
+//    filter = new double *[filterWidth];
+//    for(int i = 0; i < filterWidth; i++)
+//        filter[i] = new double[filterWidth];
+
+//    filter[0][0] = 0;
+//    filter[0][1] = -1;
+//    filter[0][2] = 0;
+
+//    filter[1][0] = -1;
+//    filter[1][1] = 4;
+//    filter[1][2] = -1;
+
+//    filter[2][0] = 0;
+//    filter[2][1] = -1;
+//    filter[2][2] = 0;
+
+//    res = apply_filter(img, filter, filterWidth);
+
+//    int min = 10000;
+//    int max = -10000;
+//    for(int i = 0; i < res.cols; i++){
+//        for(int j = 0; j < res.rows; j++){
+//            Vec3b& color_res = res.at<Vec3b>(Point(i, j));
+
+//            if (color_res[0] < min){
+//                min = color_res[0];
+//            }
+
+//            if (color_res[0] > max){
+//                max = color_res[0];
+//            }
+//        }
+//    }
+
+//    for(int i = 0; i < res.cols; i++){
+//        for(int j = 0; j < res.rows; j++){
+//            Vec3b& color_res = res.at<Vec3b>(Point(i, j));
+
+//            int sum = ((double)(color_res[0] - min) / (double)(max - min)) * 255;
+
+//            color_res[0] = sum;
+//            color_res[1] = sum;
+//            color_res[2] = sum;
+//        }
+//    }
+
+//    cout << "Max: " << max << endl;
+//    cout << "Min: " << min << endl;
+
+    for(int i = 0; i < res.cols; i++){
+        for(int j = 0; j < res.rows; j++){
+            Vec3b& color_res = res.at<Vec3b>(Point(i, j));
+
+            int sum = color_res[0] + 128;
+
+            color_res[0] = sum;
+            color_res[1] = sum;
+            color_res[2] = sum;
+        }
+    }
+
     return res;
 }
 

@@ -1,0 +1,20 @@
+\contentsline {section}{I. Introduction}{3}
+\contentsline {section}{II. Bottom-up Vision Model}{3}
+\contentsline {section}{III. The Eye}{3}
+\contentsline {subsection}{(a) Cornea}{4}
+\contentsline {subsection}{(b) Pupil}{4}
+\contentsline {subsection}{(c) Iris}{5}
+\contentsline {subsection}{(d) Sclera}{5}
+\contentsline {section}{IV. Eye Trackers}{5}
+\contentsline {subsection}{(a) Electro-oculography (EOG)}{6}
+\contentsline {subsection}{(b) Scleral Contact Lens/Search Coil}{7}
+\contentsline {subsection}{(c) Photo-OculoGraphy (POG) or Video-OculoGraphy (VOG)}{7}
+\contentsline {subsection}{(d) Video-Based Combined Pupil/Corneal Reflection}{7}
+\contentsline {section}{V. Starburst}{8}
+\contentsline {subsection}{(a) Noise Reduction}{9}
+\contentsline {subsection}{(b) Corneal reflection detection and localization}{9}
+\contentsline {subsection}{(c) Corneal reflection removal}{9}
+\contentsline {subsection}{(d) Pupil contour detection}{9}
+\contentsline {subsection}{(e) Ellipse fitting}{9}
+\contentsline {subsection}{(f) Model-based optimization}{9}
+\contentsline {subsection}{(g) Calibration}{9}
