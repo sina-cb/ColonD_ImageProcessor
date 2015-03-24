@@ -23,7 +23,8 @@ SOURCES += main.cpp\
     loadimage.cpp \
     captureimage.cpp \
     histogramutility.cpp \
-    processor.cpp
+    processor.cpp \
+    pyramid.cpp
 
 HEADERS  += mainwindow.h \
     projecdata.h \
@@ -31,6 +32,7 @@ HEADERS  += mainwindow.h \
     loadimage.h \
     gnuplot-iostream.h \
     histogramutility.h \
-    processor.h
+    processor.h \
+    pyramid.h
 
 FORMS    += mainwindow.ui

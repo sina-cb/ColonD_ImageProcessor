@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <opencv2/opencv.hpp>
-
+#include "pyramid.h"
 #include <vector>
 #include <QMainWindow>
 #include <QImage>
@@ -77,10 +77,17 @@ private slots:
 
     void on_gaussianBtn_clicked();
 
+    void on_pyramidCreateBtn_clicked();
+
+    void on_showPyramidBtn_clicked();
+
+    void on_savePyramidBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
     ProjecData data;
     Processor process;
+    Pyramid *pyramid;
 
 };
 

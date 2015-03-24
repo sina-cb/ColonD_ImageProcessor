@@ -11,7 +11,6 @@
 #include "captureimage.h"
 #include "histogramutility.h"
 
-
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -333,6 +332,17 @@ void MainWindow::on_prewittOpBtn_clicked()
     updateHistogram();
 }
 
+void MainWindow::on_showPyramidBtn_clicked()
+{
+    pyramid->show_all();
+}
+
+void MainWindow::on_pyramidCreateBtn_clicked()
+{
+    int level = ui->pyramidLevelTxt->text().toInt();
+    pyramid = new Pyramid(level);
+    pyramid->create_pyramid(data.Image());
+}
 
 void MainWindow::on_kirschOpBtn_clicked()
 {
@@ -368,4 +378,9 @@ void MainWindow::on_gaussianBtn_clicked()
     data.Image(gaussian);
     ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(data.Image())));
     updateHistogram();
+}
+
+void MainWindow::on_savePyramidBtn_clicked()
+{
+
 }
