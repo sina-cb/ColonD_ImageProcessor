@@ -83,6 +83,14 @@ private slots:
 
     void on_savePyramidBtn_clicked();
 
+    void on_expandZeroOrderBtn_clicked();
+
+    void on_expandFirstBtn_clicked();
+
+    void on_showZeroBtn_clicked();
+
+    void on_showFirstBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
     ProjecData data;

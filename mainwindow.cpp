@@ -109,7 +109,6 @@ void MainWindow::on_slicingBtn_clicked()
     }
 
     boost::thread thread(&MainWindow::show_animated_images, this, results, num_slices);
-
 }
 
 void MainWindow::show_animated_images(Mat *images, int number_of_images){
@@ -382,5 +381,25 @@ void MainWindow::on_gaussianBtn_clicked()
 
 void MainWindow::on_savePyramidBtn_clicked()
 {
+    pyramid->save_all();
+}
 
+void MainWindow::on_expandZeroOrderBtn_clicked()
+{
+    pyramid->expand_zero_order();
+}
+
+void MainWindow::on_expandFirstBtn_clicked()
+{
+    pyramid->expand_first_order();
+}
+
+void MainWindow::on_showZeroBtn_clicked()
+{
+    pyramid->show_zero_order();
+}
+
+void MainWindow::on_showFirstBtn_clicked()
+{
+    pyramid->show_first_order();
 }

@@ -14,10 +14,20 @@ public:
     void show_all();
     void save_all();
 
+    void expand_zero_order();
+    void expand_first_order();
+
+    void show_zero_order();
+    void show_first_order();
+
 private:
     int level;
     Mat *pyramid;
-    Mat *expanded;
+    Mat *expanded_zero;
+    Mat *expanded_first;
+
+    Mat double_zero_order_scheme(Mat& img);
+    Mat double_first_order_scheme(Mat& img);
 
 };
 
