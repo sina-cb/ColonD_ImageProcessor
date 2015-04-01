@@ -381,7 +381,18 @@ void MainWindow::on_gaussianBtn_clicked()
 
 void MainWindow::on_savePyramidBtn_clicked()
 {
-    pyramid->save_all();
+    pyramid->save_pyramid();
+}
+
+
+void MainWindow::on_saveZeroBtn_clicked()
+{
+    pyramid->save_zero();
+}
+
+void MainWindow::on_saveFirstBtn_clicked()
+{
+    pyramid->save_first();
 }
 
 void MainWindow::on_expandZeroOrderBtn_clicked()
@@ -402,4 +413,31 @@ void MainWindow::on_showZeroBtn_clicked()
 void MainWindow::on_showFirstBtn_clicked()
 {
     pyramid->show_first_order();
+}
+
+void MainWindow::on_blendBrowseBtn_clicked()
+{
+    double alpha = 0.4; double beta;
+
+    Mat src1, src2, dst;
+
+    /// Read image ( same size, same type )
+    src1 = imread("../../fog.jpg");
+    src2 = imread("../../stop.jpg");
+
+    int start = 100;
+
+    Range rows_range (start, src2.rows + start);
+    Range cols_range (start, src2.cols + start);
+    src1 = src1(rows_range, cols_range);
+
+    /// Create Windows
+    namedWindow("Linear Blend", 1);
+
+    beta = ( 1.0 - alpha );
+    addWeighted( src1, alpha, src2, beta, 0.0, dst);
+
+    imshow("Linear Blend", dst);
+
+    waitKey(0);
 }

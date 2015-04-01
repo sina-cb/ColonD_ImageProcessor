@@ -12,7 +12,9 @@ public:
 
     void create_pyramid(Mat& img);
     void show_all();
-    void save_all();
+    void save_pyramid();
+    void save_zero();
+    void save_first();
 
     void expand_zero_order();
     void expand_first_order();

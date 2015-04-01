@@ -91,6 +91,12 @@ private slots:
 
     void on_showFirstBtn_clicked();
 
+    void on_saveZeroBtn_clicked();
+
+    void on_saveFirstBtn_clicked();
+
+    void on_blendBrowseBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
     ProjecData data;

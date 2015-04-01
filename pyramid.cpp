@@ -144,7 +144,7 @@ Mat Pyramid::double_first_order_scheme(Mat &img){
     const int filter_width = 3;
     float filter_elements[filter_width * filter_width] = {0.25, 0.5, 0.25, 0.5, 1, 0.5, 0.25, 0.5, 0.25};
     Mat kernel(Size(filter_width, filter_width), CV_32F, filter_elements);
-    filter2D(res, temp, ddepth, kernel, anchor, delta, BORDER_CONSTANT);
+    filter2D(res, temp, ddepth, kernel, anchor, delta, BORDER_REFLECT_101);
 
     return temp;
 }
@@ -193,7 +193,7 @@ void Pyramid::show_first_order(){
     }
 }
 
-void Pyramid::save_all(){
+void Pyramid::save_pyramid(){
     char name[100];
 
     vector<int> compression_params;
@@ -201,13 +201,38 @@ void Pyramid::save_all(){
     compression_params.push_back(100);
 
     for (int i = 0; i < level; i++){
-        sprintf(name, "/home/sina/Desktop/Image #%d", i);
-        namedWindow(name, WINDOW_AUTOSIZE);
+        sprintf(name, "pyramid_image #%d.jpg", i);
+        imwrite(name, pyramid[i], compression_params);
+    }
+}
+
+void Pyramid::save_zero(){
+    char name[100];
+
+    vector<int> compression_params;
+    compression_params.push_back(CV_IMWRITE_JPEG_QUALITY);
+    compression_params.push_back(100);
+
+    for (int i = 0; i < level; i++){
+        sprintf(name, "zero_level_image #%d.jpg", i);
+        imwrite(name, expanded_zero[i], compression_params);
+    }
+}
+
+void Pyramid::save_first(){
+    char name[100];
+
+    vector<int> compression_params;
+    compression_params.push_back(CV_IMWRITE_JPEG_QUALITY);
+    compression_params.push_back(100);
+
+    for (int i = 0; i < level; i++){
+        sprintf(name, "first_level_image #%d.jpg", i);
         imwrite(name, expanded_first[i], compression_params);
     }
 }
 
 Pyramid::~Pyramid()
 {
-}
 
+}
