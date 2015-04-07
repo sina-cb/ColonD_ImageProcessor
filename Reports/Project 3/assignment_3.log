@@ -1,0 +1,422 @@
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2015.2.8)  7 APR 2015 09:59
+entering extended mode
+ %&-line parsing enabled.
+**assignment_3.tex
+(./assignment_3.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, farsi, arabic, croatian, bulgarian, ukrainian, russian, czech, slov
+ak, danish, dutch, finnish, french, basque, ngerman, german, german-x-2009-06-1
+9, ngerman-x-2009-06-19, ibycus, monogreek, greek, ancientgreek, hungarian, san
+skrit, italian, latin, latvian, lithuanian, mongolian2a, mongolian, bokmal, nyn
+orsk, romanian, irish, coptic, serbian, turkish, welsh, esperanto, uppersorbian
+, estonian, indonesian, interlingua, icelandic, kurmanji, slovenian, polish, po
+rtuguese, spanish, galician, catalan, swedish, ukenglish, pinyin, loaded.
+(/usr/share/texmf-texlive/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texmf-texlive/tex/latex/base/size10.clo
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texmf-texlive/tex/latex/listings/listings.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+\lst@mode=\count87
+\lst@gtempboxa=\box26
+\lst@token=\toks15
+\lst@length=\count88
+\lst@currlwidth=\dimen103
+\lst@column=\count89
+\lst@pos=\count90
+\lst@lostspace=\dimen104
+\lst@width=\dimen105
+\lst@newlines=\count91
+\lst@lineno=\count92
+\lst@maxwidth=\dimen106
+
+(/usr/share/texmf-texlive/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
+\c@lstnumber=\count93
+\lst@skipnumbers=\count94
+\lst@framebox=\box27
+)
+(/usr/share/texmf-texlive/tex/latex/listings/listings.cfg
+File: listings.cfg 2007/02/22 1.4 listings configuration
+))
+Package: listings 2007/02/22 1.4 (Carsten Heinz)
+
+(/usr/share/texmf-texlive/tex/latex/mh/mathtools.sty
+Package: mathtools 2008/08/01 v1.06 mathematical typesetting tools (MH)
+
+(/usr/share/texmf-texlive/tex/latex/tools/calc.sty
+Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count95
+\calc@Bcount=\count96
+\calc@Adimen=\dimen107
+\calc@Bdimen=\dimen108
+\calc@Askip=\skip43
+\calc@Bskip=\skip44
+LaTeX Info: Redefining \setlength on input line 76.
+LaTeX Info: Redefining \addtolength on input line 77.
+\calc@Ccount=\count97
+\calc@Cskip=\skip45
+)
+(/usr/share/texmf-texlive/tex/latex/mh/mhsetup.sty
+Package: mhsetup 2007/12/03 v1.2 programming setup (MH)
+)
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip46
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf-texlive/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks16
+\ex@=\dimen109
+))
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen110
+)
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count98
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count99
+\leftroot@=\count100
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count101
+\DOTSCASE@=\count102
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box28
+\strutbox@=\box29
+\big@size=\dimen111
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count103
+\c@MaxMatrixCols=\count104
+\dotsspace@=\muskip10
+\c@parentequation=\count105
+\dspbrk@lvl=\count106
+\tag@help=\toks17
+\row@=\count107
+\column@=\count108
+\maxfields@=\count109
+\andhelp@=\toks18
+\eqnshift@=\dimen112
+\alignsep@=\dimen113
+\tagshift@=\dimen114
+\tagwidth@=\dimen115
+\totwidth@=\dimen116
+\lineht@=\dimen117
+\@envbody=\toks19
+\multlinegap=\skip47
+\multlinetaggap=\skip48
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+\g_MT_multlinerow_int=\count110
+\l_MT_multwidth_dim=\dimen118
+)
+(/usr/share/texmf-texlive/tex/latex/fancyhdr/fancyhdr.sty
+\fancy@headwidth=\skip49
+\f@ncyO@elh=\skip50
+\f@ncyO@erh=\skip51
+\f@ncyO@olh=\skip52
+\f@ncyO@orh=\skip53
+\f@ncyO@elf=\skip54
+\f@ncyO@erf=\skip55
+\f@ncyO@olf=\skip56
+\f@ncyO@orf=\skip57
+)
+(/usr/share/texmf-texlive/tex/latex/lastpage/lastpage.sty
+Package: lastpage 1994/06/25 v0.1b LaTeX2e package for refs to last page number
+ (JPG)
+)
+(/usr/share/texmf-texlive/tex/latex/fancyhdr/extramarks.sty
+\@temptokenb=\toks21
+)
+(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/etc/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2009/08/28 v1.8 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
+\Gread@gobject=\count111
+))
+\Gin@req@height=\dimen119
+\Gin@req@width=\dimen120
+)
+(/usr/share/texmf-texlive/tex/latex/lipsum/lipsum.sty
+Package: lipsum 2005/01/26 v1.0 150 paragraphs of Lorem Ipsum dummy text
+File: lipsum.dtx 2005/01/26 v1.0 150 paragraphs of Lorem Ipsum dummy text
+\c@lips@count=\count112
+)
+(/usr/share/texmf-texlive/tex/latex/caption/caption.sty
+Package: caption 2009/10/09 v3.1k Customizing captions (AR)
+
+(/usr/share/texmf-texlive/tex/latex/caption/caption3.sty
+Package: caption3 2009/10/09 v3.1k caption3 kernel (AR)
+\captionmargin=\dimen121
+\captionmargin@=\dimen122
+\captionwidth=\dimen123
+\caption@indent=\dimen124
+\caption@parindent=\dimen125
+\caption@hangindent=\dimen126
+)
+\c@ContinuedFloat=\count113
+Package caption Info: listings package is loaded.
+)
+(/usr/share/texmf-texlive/tex/latex/caption/subcaption.sty
+Package: subcaption 2008/08/31 v1.0b Adding subcaptions (AR)
+\c@subfigure=\count114
+\c@subtable=\count115
+)
+\c@homeworkProblemCounter=\count116
+ (./assignment_3.aux)
+\openout1 = `assignment_3.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+\c@lstlisting=\count117
+ (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count118
+\scratchdimen=\dimen127
+\scratchbox=\box30
+\nofMPsegments=\count119
+\nofMParguments=\count120
+\everyMPshowfont=\toks22
+\MPscratchCnt=\count121
+\MPscratchDim=\dimen128
+\MPnumerator=\count122
+\everyMPtoPDFconversion=\toks23
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+ [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./assignment_3.toc)
+\tf@toc=\write3
+\openout3 = `assignment_3.toc'.
+
+
+[2]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 155.
+
+ (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 155.
+
+<Lena/p0.jpg, id=13, 513.92pt x 513.92pt>
+File: Lena/p0.jpg Graphic file (type jpg)
+ <use Lena/p0.jpg>
+<Lena/p1.jpg, id=14, 256.96pt x 256.96pt>
+File: Lena/p1.jpg Graphic file (type jpg)
+ <use Lena/p1.jpg>
+<Lena/p2.jpg, id=15, 128.48pt x 128.48pt>
+File: Lena/p2.jpg Graphic file (type jpg)
+ <use Lena/p2.jpg>
+<Lena/p3.jpg, id=16, 64.24pt x 64.24pt>
+File: Lena/p3.jpg Graphic file (type jpg)
+ <use Lena/p3.jpg>
+<Lena/p4.jpg, id=17, 32.12pt x 32.12pt>
+File: Lena/p4.jpg Graphic file (type jpg)
+ <use Lena/p4.jpg>
+<Bike/p0.jpg, id=18, 642.4pt x 481.8pt>
+File: Bike/p0.jpg Graphic file (type jpg)
+ <use Bike/p0.jpg>
+<Bike/p1.jpg, id=19, 321.2pt x 240.9pt>
+File: Bike/p1.jpg Graphic file (type jpg)
+ <use Bike/p1.jpg>
+<Bike/p2.jpg, id=20, 160.6pt x 120.45pt>
+File: Bike/p2.jpg Graphic file (type jpg)
+ <use Bike/p2.jpg>
+<Bike/p3.jpg, id=21, 80.3pt x 60.225pt>
+File: Bike/p3.jpg Graphic file (type jpg)
+ <use Bike/p3.jpg>
+<Bike/p4.jpg, id=22, 40.15pt x 30.1125pt>
+File: Bike/p4.jpg Graphic file (type jpg)
+ <use Bike/p4.jpg>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[3 <./Lena/p0.jpg> <./Lena/p1.jpg> <./Lena/p2.jpg> <./Lena/p3.jpg> <./Lena/p4.j
+pg>] <Lena/o0l0.jpg, id=27, 513.92pt x 513.92pt>
+File: Lena/o0l0.jpg Graphic file (type jpg)
+ <use Lena/o0l0.jpg>
+<Lena/o0l1.jpg, id=28, 513.92pt x 513.92pt>
+File: Lena/o0l1.jpg Graphic file (type jpg)
+ <use Lena/o0l1.jpg>
+<Lena/o0l2.jpg, id=29, 513.92pt x 513.92pt>
+File: Lena/o0l2.jpg Graphic file (type jpg)
+ <use Lena/o0l2.jpg>
+<Lena/o0l3.jpg, id=30, 513.92pt x 513.92pt>
+File: Lena/o0l3.jpg Graphic file (type jpg)
+ <use Lena/o0l3.jpg>
+<Lena/o0l4.jpg, id=31, 513.92pt x 513.92pt>
+File: Lena/o0l4.jpg Graphic file (type jpg)
+ <use Lena/o0l4.jpg>
+<Bike/o0l0.jpg, id=32, 642.4pt x 481.8pt>
+File: Bike/o0l0.jpg Graphic file (type jpg)
+ <use Bike/o0l0.jpg>
+<Bike/o0l1.jpg, id=33, 642.4pt x 481.8pt>
+File: Bike/o0l1.jpg Graphic file (type jpg)
+ <use Bike/o0l1.jpg>
+<Bike/o0l2.jpg, id=34, 642.4pt x 481.8pt>
+File: Bike/o0l2.jpg Graphic file (type jpg)
+ <use Bike/o0l2.jpg>
+<Bike/o0l3.jpg, id=35, 642.4pt x 481.8pt>
+File: Bike/o0l3.jpg Graphic file (type jpg)
+ <use Bike/o0l3.jpg>
+<Bike/o0l4.jpg, id=36, 642.4pt x 481.8pt>
+File: Bike/o0l4.jpg Graphic file (type jpg)
+ <use Bike/o0l4.jpg>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[4 <./Bike/p0.jpg> <./Bike/p1.jpg> <./Bike/p2.jpg> <./Bike/p3.jpg> <./Bike/p4.j
+pg> <./Lena/o0l0.jpg> <./Lena/o0l1.jpg> <./Lena/o0l2.jpg> <./Lena/o0l3.jpg> <./
+Lena/o0l4.jpg>] <Lena/o1l0.jpg, id=40, 513.92pt x 513.92pt>
+File: Lena/o1l0.jpg Graphic file (type jpg)
+
+<use Lena/o1l0.jpg> <Lena/o1l1.jpg, id=41, 513.92pt x 513.92pt>
+File: Lena/o1l1.jpg Graphic file (type jpg)
+
+<use Lena/o1l1.jpg> <Lena/o1l2.jpg, id=42, 513.92pt x 513.92pt>
+File: Lena/o1l2.jpg Graphic file (type jpg)
+
+<use Lena/o1l2.jpg> <Lena/o1l3.jpg, id=43, 513.92pt x 513.92pt>
+File: Lena/o1l3.jpg Graphic file (type jpg)
+
+<use Lena/o1l3.jpg> <Lena/o1l4.jpg, id=44, 513.92pt x 513.92pt>
+File: Lena/o1l4.jpg Graphic file (type jpg)
+
+<use Lena/o1l4.jpg>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Bike/o1l0.jpg, id=45, 642.4pt x 481.8pt>
+File: Bike/o1l0.jpg Graphic file (type jpg)
+ <use Bike/o1l0.jpg>
+<Bike/o1l1.jpg, id=46, 642.4pt x 481.8pt>
+File: Bike/o1l1.jpg Graphic file (type jpg)
+ <use Bike/o1l1.jpg>
+<Bike/o1l2.jpg, id=47, 642.4pt x 481.8pt>
+File: Bike/o1l2.jpg Graphic file (type jpg)
+ <use Bike/o1l2.jpg>
+<Bike/o1l3.jpg, id=48, 642.4pt x 481.8pt>
+File: Bike/o1l3.jpg Graphic file (type jpg)
+ <use Bike/o1l3.jpg>
+<Bike/o1l4.jpg, id=49, 642.4pt x 481.8pt>
+File: Bike/o1l4.jpg Graphic file (type jpg)
+ <use Bike/o1l4.jpg>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Exp/ex0.jpg, id=50, 509.905pt x 509.905pt>
+File: Exp/ex0.jpg Graphic file (type jpg)
+ <use Exp/ex0.jpg>
+<Exp/ex1.jpg, id=51, 509.905pt x 509.905pt>
+File: Exp/ex1.jpg Graphic file (type jpg)
+ <use Exp/ex1.jpg>
+<Exp/ex2.jpg, id=52, 509.905pt x 509.905pt>
+File: Exp/ex2.jpg Graphic file (type jpg)
+ <use Exp/ex2.jpg>
+<Exp/ex3.jpg, id=53, 509.905pt x 509.905pt>
+File: Exp/ex3.jpg Graphic file (type jpg)
+ <use Exp/ex3.jpg>
+<Exp/ex4.jpg, id=54, 509.905pt x 509.905pt>
+File: Exp/ex4.jpg Graphic file (type jpg)
+ <use Exp/ex4.jpg>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Exp/bex0.jpg, id=55, 638.385pt x 477.785pt>
+File: Exp/bex0.jpg Graphic file (type jpg)
+ <use Exp/bex0.jpg>
+<Exp/bex1.jpg, id=56, 638.385pt x 477.785pt>
+File: Exp/bex1.jpg Graphic file (type jpg)
+ <use Exp/bex1.jpg>
+<Exp/bex2.jpg, id=57, 638.385pt x 477.785pt>
+File: Exp/bex2.jpg Graphic file (type jpg)
+ <use Exp/bex2.jpg>
+<Exp/bex3.jpg, id=58, 638.385pt x 477.785pt>
+File: Exp/bex3.jpg Graphic file (type jpg)
+ <use Exp/bex3.jpg>
+<Exp/bex4.jpg, id=59, 638.385pt x 477.785pt>
+File: Exp/bex4.jpg Graphic file (type jpg)
+ <use Exp/bex4.jpg>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[5 <./Bike/o0l0.jpg> <./Bike/o0l1.jpg> <./Bike/o0l2.jpg> <./Bike/o0l3.jpg> <./B
+ike/o0l4.jpg>] [6 <./Lena/o1l0.jpg> <./Lena/o1l1.jpg> <./Lena/o1l2.jpg> <./Lena
+/o1l3.jpg> <./Lena/o1l4.jpg> <./Bike/o1l0.jpg> <./Bike/o1l1.jpg> <./Bike/o1l2.j
+pg> <./Bike/o1l3.jpg> <./Bike/o1l4.jpg>] AED: lastpage setting LastPage
+[7 <./Exp/ex0.jpg> <./Exp/ex1.jpg> <./Exp/ex2.jpg> <./Exp/ex3.jpg> <./Exp/ex4.j
+pg> <./Exp/bex0.jpg> <./Exp/bex1.jpg> <./Exp/bex2.jpg> <./Exp/bex3.jpg> <./Exp/
+bex4.jpg>] (./assignment_3.aux) ) 
+Here is how much of TeX's memory you used:
+ 4668 strings out of 493848
+ 67588 string characters out of 1152824
+ 228041 words of memory out of 3000000
+ 7890 multiletter control sequences out of 15000+50000
+ 9868 words of font info for 35 fonts, out of 3000000 for 9000
+ 714 hyphenation exceptions out of 8191
+ 36i,10n,43p,774b,300s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texmf-texlive/fonts/type1/public/a
+msfonts/cm/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
+cmbx12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb><
+/usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/te
+xmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive
+/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type
+1/public/amsfonts/cm/cmti12.pfb>
+Output written on assignment_3.pdf (7 pages, 3816096 bytes).
+PDF statistics:
+ 94 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 201 words of extra memory for PDF output out of 10000 (max. 10000000)
+

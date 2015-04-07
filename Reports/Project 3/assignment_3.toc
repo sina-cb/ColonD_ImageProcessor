@@ -1,0 +1,5 @@
+\contentsline {section}{I. Introduction}{3}
+\contentsline {section}{II. Creating the Pyramid}{3}
+\contentsline {section}{III. Zero Order Hold Scheme}{3}
+\contentsline {section}{IV. First Order Hold Scheme}{5}
+\contentsline {section}{V. Experiments}{5}
