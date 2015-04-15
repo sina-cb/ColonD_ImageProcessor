@@ -9,6 +9,7 @@
 #include <QPixmap>
 #include "projecdata.h"
 #include "processor.h"
+#include "steganography.h"
 
 using namespace cv;
 using namespace std;
@@ -97,10 +98,19 @@ private slots:
 
     void on_blendBrowseBtn_clicked();
 
+    void on_mkWhiteBtn_clicked();
+
+    void on_mkBlackBtn_clicked();
+
+    void on_embedBtn_clicked();
+
+    void on_embedTextBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
     ProjecData data;
     Processor process;
+    Steganography steganographer;
     Pyramid *pyramid;
 
 };

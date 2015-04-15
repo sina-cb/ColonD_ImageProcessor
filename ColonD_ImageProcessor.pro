@@ -11,10 +11,10 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = ColonD_ImageProcessor
 TEMPLATE = app
 
-INCLUDEPATH += /opt/ros/hydro/include/opencv\
-            /opt/ros/hydro/include
+INCLUDEPATH += /usr/include/opencv \
+            /opt/ros/indigo/include
 
-LIBS += -L/opt/ros/hydro/lib -lopencv_calib3d -lopencv_contrib -lopencv_core -lopencv_features2d -lopencv_flann -lopencv_gpu -lopencv_highgui -lopencv_imgproc -lopencv_legacy -lopencv_ml -lopencv_nonfree -lopencv_objdetect -lopencv_photo -lopencv_stitching -lopencv_ts -lopencv_video -lopencv_videostab
+LIBS += -L/opt/ros/indigo/lib -lopencv_calib3d -lopencv_contrib -lopencv_core -lopencv_features2d -lopencv_flann -lopencv_gpu -lopencv_highgui -lopencv_imgproc -lopencv_legacy -lopencv_ml -lopencv_objdetect -lopencv_photo -lopencv_stitching -lopencv_ts -lopencv_video -lopencv_videostab
 LIBS += -L/usr/lib -lutil -lboost_iostreams -lboost_system -lboost_filesystem -lboost_thread
 
 SOURCES += main.cpp\
@@ -24,7 +24,8 @@ SOURCES += main.cpp\
     captureimage.cpp \
     histogramutility.cpp \
     processor.cpp \
-    pyramid.cpp
+    pyramid.cpp \
+    steganography.cpp
 
 HEADERS  += mainwindow.h \
     projecdata.h \
@@ -33,6 +34,7 @@ HEADERS  += mainwindow.h \
     gnuplot-iostream.h \
     histogramutility.h \
     processor.h \
-    pyramid.h
+    pyramid.h \
+    steganography.h
 
 FORMS    += mainwindow.ui

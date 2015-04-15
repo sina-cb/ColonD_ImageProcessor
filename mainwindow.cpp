@@ -384,6 +384,34 @@ void MainWindow::on_savePyramidBtn_clicked()
     pyramid->save_pyramid();
 }
 
+void MainWindow::on_mkWhiteBtn_clicked()
+{
+    Mat whiten = steganographer.makeWhite(data.Image(), ui->mkWhiteTxt->text().toInt());
+    data.Image(whiten);
+    ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(data.Image())));
+    updateHistogram();
+}
+
+void MainWindow::on_mkBlackBtn_clicked()
+{
+    Mat blacken = steganographer.makeBlack(data.Image(), ui->mkBlackTxt->text().toInt());
+    data.Image(blacken);
+    ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(data.Image())));
+    updateHistogram();
+}
+
+void MainWindow::on_embedTextBtn_clicked()
+{
+    Mat embedText = steganographer.makeEmbedText(data.Image(), ui->embedTextTxt->toPlainText().toStdString(), ui->embedTextBitsTxt->text().toInt());
+    data.Image(embedText);
+    ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(data.Image())));
+    updateHistogram();
+}
+
+void MainWindow::on_embedBtn_clicked()
+{
+    cout << "Search for the destination image and embed it!!!" << endl;
+}
 
 void MainWindow::on_saveZeroBtn_clicked()
 {
