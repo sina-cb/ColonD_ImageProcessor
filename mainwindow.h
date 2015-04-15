@@ -104,7 +104,7 @@ private slots:
 
     void on_embedBtn_clicked();
 
-    void on_embedTextBtn_clicked();
+    void on_retrieveImgBtn_clicked();
 
 private:
     Ui::MainWindow *ui;

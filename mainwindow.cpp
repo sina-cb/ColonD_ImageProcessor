@@ -166,18 +166,18 @@ QImage MainWindow::mat_to_qimage(Mat& img)
 
 void MainWindow::on_saveBtn_clicked()
 {
-    QString selFilter="JPG image files (*.jpg)";
-    QString fileName = QFileDialog::getSaveFileName(this, "Save file", QDir::currentPath(), "JPG image files (*.jpg);;All files (*.*)", &selFilter);
+    QString selFilter="PNG image files (*.png)";
+    QString fileName = QFileDialog::getSaveFileName(this, "Save file", QDir::currentPath(), "PNG image files (*.png);;All files (*.*)", &selFilter);
 
-    if (!fileName.endsWith(".jpg")){
-        fileName = fileName + ".jpg";
+    if (!fileName.endsWith(".png")){
+        fileName = fileName + ".png";
     }
 
     Mat temp(data.Image().rows, data.Image().cols, CV_8UC1);
     cvtColor(data.Image(), temp, CV_RGB2BGR);
 
     vector<int> compression_params;
-    compression_params.push_back(CV_IMWRITE_JPEG_QUALITY);
+    compression_params.push_back(CV_IMWRITE_PNG_STRATEGY_HUFFMAN_ONLY);
     compression_params.push_back(100);
 
     imwrite(fileName.toStdString().c_str(), temp, compression_params);
@@ -400,17 +400,43 @@ void MainWindow::on_mkBlackBtn_clicked()
     updateHistogram();
 }
 
-void MainWindow::on_embedTextBtn_clicked()
+void MainWindow::on_embedBtn_clicked()
 {
-    Mat embedText = steganographer.makeEmbedText(data.Image(), ui->embedTextTxt->toPlainText().toStdString(), ui->embedTextBitsTxt->text().toInt());
-    data.Image(embedText);
+    QString selFilter="JPG image files (*.jpg)";
+    QUrl url = QFileDialog::getOpenFileUrl(this, "Load image file", QDir::currentPath(), "JPG image files (*.jpg);;All files (*.*)", &selFilter);
+
+    LoadImage load;
+    Mat to_hide;
+    load.load(url.path(), to_hide);
+
+    switch (to_hide.type()) {
+    case CV_8UC1:
+        cvtColor(to_hide, to_hide, CV_GRAY2RGB);
+        break;
+    case CV_8UC3:
+        cvtColor(to_hide, to_hide, CV_BGR2RGB);
+        break;
+    }
+    assert(to_hide.isContinuous());
+
+    Mat img = data.Image();
+    if (img.cols != to_hide.cols || img.rows != to_hide.rows){
+        cout << "Images should be the same size!" << endl;
+        return;
+    }
+
+    Mat conv = steganographer.makeEmbedImage(img, to_hide, ui->embedTxt->text().toInt());
+    data.Image(conv);
     ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(data.Image())));
     updateHistogram();
 }
 
-void MainWindow::on_embedBtn_clicked()
+void MainWindow::on_retrieveImgBtn_clicked()
 {
-    cout << "Search for the destination image and embed it!!!" << endl;
+    Mat retrieved = steganographer.retrieveEmbededImage(data.Image(), ui->embedTxt->text().toInt());
+    data.Image(retrieved);
+    ui->imageLbl->setPixmap(QPixmap::fromImage(mat_to_qimage(data.Image())));
+    updateHistogram();
 }
 
 void MainWindow::on_saveZeroBtn_clicked()
