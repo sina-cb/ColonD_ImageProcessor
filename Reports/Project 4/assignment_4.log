@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.14)  19 APR 2015 23:08
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.14)  19 APR 2015 23:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -480,25 +480,25 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: pic/exp1_orig.jpg Graphic file (type jpg)
  <use pic/exp1_orig.jpg>
 Package pdftex.def Info: pic/exp1_orig.jpg used on input line 255.
-(pdftex.def)             Requested size: 140.92792pt x 87.42218pt.
+(pdftex.def)             Requested size: 187.89912pt x 116.55681pt.
 
 <pic/exp1_sub.jpg, id=42, 5359.09846pt x 3324.42pt>
 File: pic/exp1_sub.jpg Graphic file (type jpg)
  <use pic/exp1_sub.jpg>
 Package pdftex.def Info: pic/exp1_sub.jpg used on input line 256.
-(pdftex.def)             Requested size: 140.92792pt x 87.40175pt.
+(pdftex.def)             Requested size: 187.89912pt x 116.51877pt.
 
 <pic/exp1_res.png, id=43, 967.615pt x 600.2425pt>
 File: pic/exp1_res.png Graphic file (type png)
  <use pic/exp1_res.png>
 Package pdftex.def Info: pic/exp1_res.png used on input line 257.
-(pdftex.def)             Requested size: 140.92792pt x 87.42218pt.
+(pdftex.def)             Requested size: 187.89912pt x 116.55681pt.
 
 <pic/exp1_retr.png, id=44, 967.615pt x 600.2425pt>
 File: pic/exp1_retr.png Graphic file (type png)
  <use pic/exp1_retr.png>
 Package pdftex.def Info: pic/exp1_retr.png used on input line 258.
-(pdftex.def)             Requested size: 140.92792pt x 87.42218pt.
+(pdftex.def)             Requested size: 187.89912pt x 116.55681pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -513,11 +513,14 @@ LaTeX Warning: Text page 5 contains only floats.
 .png (PNG copy)> <./pic/blackN4.png (PNG copy)> <./pic/blackN5.png (PNG copy)> 
 <./pic/blackN6.png (PNG copy)> <./pic/blackN7.png (PNG copy)> <./pic/steg1_len.
 png (PNG copy)> <./pic/steg1_bike.png (PNG copy)> <./pic/steg1_res.png (PNG cop
-y)> <./pic/steg1_retr.png (PNG copy)>] [6 <./pic/steg2_res.png (PNG copy)> <./p
-ic/steg2_retr.png (PNG copy)> <./pic/steg3_res.png (PNG copy)> <./pic/steg3_ret
-r.png (PNG copy)> <./pic/exp1_orig.jpg> <./pic/exp1_sub.jpg> <./pic/exp1_res.pn
-g (PNG copy)> <./pic/exp1_retr.png (PNG copy)>]
+y)> <./pic/steg1_retr.png (PNG copy)>]
+Overfull \vbox (4.45932pt too high) has occurred while \output is active []
 
+
+[6 <./pic/steg2_res.png (PNG copy)> <./pic/steg2_retr.png (PNG copy)> <./pic/st
+eg3_res.png (PNG copy)> <./pic/steg3_retr.png (PNG copy)> <./pic/exp1_orig.jpg>
+ <./pic/exp1_sub.jpg> <./pic/exp1_res.png (PNG copy)> <./pic/exp1_retr.png (PNG
+ copy)>] 
 AED: lastpage setting LastPage
 [7] (./assignment_4.aux) ) 
 Here is how much of TeX's memory you used:
@@ -527,13 +530,13 @@ Here is how much of TeX's memory you used:
  8554 multiletter control sequences out of 15000+600000
  9522 words of font info for 34 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 38i,11n,43p,1374b,307s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,10n,43p,1374b,307s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
 10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><
 /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on assignment_4.pdf (7 pages, 5798008 bytes).
+Output written on assignment_4.pdf (7 pages, 5798030 bytes).
 PDF statistics:
  76 PDF objects out of 1000 (max. 8388607)
  34 compressed objects within 1 object stream
